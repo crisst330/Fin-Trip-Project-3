@@ -17,7 +17,7 @@ const myapp = express();
 const PORT = process.env.PORT || 3000;
 
 // Session configuration
-app.use(
+myapp.use(
   session({
     secret: "your-secret-key-change-in-production",
     resave: false,
@@ -31,27 +31,27 @@ app.use(
 );
 
 // Initialize Passport
-app.use(passport.initialize());
-app.use(passport.session());
+myapp.use(passport.initialize());
+myapp.use(passport.session());
 
 // Will work once from the frontend (local server), we run the 'build' command to create the 'dist' folder
 // myapp.use("/", express.static("./frontend/dist"));
 
-app.use(express.json());
+myapp.use(express.json());
 
 // This middleware is used to parse URL-encoded data sent in the request body. 
 // It allows the server to handle form submissions and other types of data sent 
 // in the URL-encoded format. The extended option allows for rich objects and 
 // arrays to be encoded into the URL-encoded format, which can be useful for 
 // handling complex data structures.
-app.use(express.urlencoded({ extended: true }));
+myapp.use(express.urlencoded({ extended: true }));
 
 myapp.get("/", (req, res) => {
     res.send("Testing");
 });
 
 // Will need to implement an index.html file here for this to work and also have already entered the command 'build' for access in the ./frontend/dist directory
-app.get("*splat", function(req, res) {
+myapp.get("*splat", function(req, res) {
   res.sendFile("index.html", {
     root: join(__dirname, "./frontend/dist"),
   });

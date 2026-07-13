@@ -12,7 +12,7 @@ export default function BudgetProgressBar({ spent, budgetCap }) {
     );
 }
 
-BudgetProgressBar.prototype = {
+BudgetProgressBar.proptype = {
     spent: PropTypes.number.isRequired,
     budgetCap: PropTypes.number.isRequired,
 };
