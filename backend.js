@@ -1,8 +1,62 @@
 import express from 'express';
 import process from 'process';
+import session from 'express-session';
+import passport from "./config/passport.js";
 
+// Will be used later
+// import { fileURLToPath } from 'url';
+// import { dirname, join } from 'path';
+
+// Will import all of our routes here for later
+// import authRouter from "./router/Auth.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const myapp = express();
-const PORT = myapp.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
+// Session configuration
+app.use(
+  session({
+    secret: "your-secret-key-change-in-production",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: false, // Set to true in production with HTTPS
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    },
+  })
+);
 
+// Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Will work once from the frontend (local server), we run the 'build' command to create the 'dist' folder
+// myapp.use("/", express.static("./frontend/dist"));
+
+app.use(express.json());
+
+// This middleware is used to parse URL-encoded data sent in the request body. 
+// It allows the server to handle form submissions and other types of data sent 
+// in the URL-encoded format. The extended option allows for rich objects and 
+// arrays to be encoded into the URL-encoded format, which can be useful for 
+// handling complex data structures.
+app.use(express.urlencoded({ extended: true }));
+
+myapp.get("/", (req, res) => {
+    res.send("Testing");
+});
+
+// Will need to implement an index.html file here for this to work and also have already entered the command 'build' for access in the ./frontend/dist directory
+app.get("*splat", function(req, res) {
+  res.sendFile("index.html", {
+    root: join(__dirname, "./frontend/dist"),
+  });
+});
+
+myapp.listen(PORT, () => {
+    console.log(`Server is running on port {PORT}`);
+});
