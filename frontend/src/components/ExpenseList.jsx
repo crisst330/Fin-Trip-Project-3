@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import ExpenseItem from "./ExpenseItem.jsx";
 import PropTypes from "prop-types";
 
-export default function ExpenseList({ items, tripId, reloadExpenses, query, setQuery }) {
+export default function ExpenseList({
+  items,
+  tripId,
+  reloadExpenses,
+  query,
+  setQuery,
+}) {
   function renderExpense(item) {
     return (
       <ExpenseItem
@@ -24,7 +30,7 @@ export default function ExpenseList({ items, tripId, reloadExpenses, query, setQ
   const filteredItems = items.filter(
     (item) =>
       item.title.toLowerCase().includes(query.toLowerCase()) ||
-      item.category.toLowerCase().includes(query.toLowerCase())
+      item.category.toLowerCase().includes(query.toLowerCase()),
   );
 
   return (
@@ -52,7 +58,7 @@ ExpenseList.propTypes = {
       title: PropTypes.string.isRequired,
       cost: PropTypes.number.isRequired,
       status: PropTypes.oneOf(["estimated", "booked"]).isRequired,
-    })
+    }),
   ).isRequired,
   tripId: PropTypes.string.isRequired,
   reloadExpenses: PropTypes.func.isRequired,

@@ -1,6 +1,6 @@
-import express from 'express';
-import process from 'process';
-import session from 'express-session';
+import express from "express";
+import process from "process";
+import session from "express-session";
 import passport from "./config/passport.js";
 
 // Will be used later
@@ -27,7 +27,7 @@ myapp.use(
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
     },
-  })
+  }),
 );
 
 // Initialize Passport
@@ -39,24 +39,24 @@ myapp.use(passport.session());
 
 myapp.use(express.json());
 
-// This middleware is used to parse URL-encoded data sent in the request body. 
-// It allows the server to handle form submissions and other types of data sent 
-// in the URL-encoded format. The extended option allows for rich objects and 
-// arrays to be encoded into the URL-encoded format, which can be useful for 
+// This middleware is used to parse URL-encoded data sent in the request body.
+// It allows the server to handle form submissions and other types of data sent
+// in the URL-encoded format. The extended option allows for rich objects and
+// arrays to be encoded into the URL-encoded format, which can be useful for
 // handling complex data structures.
 myapp.use(express.urlencoded({ extended: true }));
 
 myapp.get("/", (req, res) => {
-    res.send("Testing");
+  res.send("Testing");
 });
 
 // Will need to implement an index.html file here for this to work and also have already entered the command 'build' for access in the ./frontend/dist directory
-myapp.get("*splat", function(req, res) {
+myapp.get("*splat", function (req, res) {
   res.sendFile("index.html", {
     root: join(__dirname, "./frontend/dist"),
   });
 });
 
 myapp.listen(PORT, () => {
-    console.log(`Server is running on port {PORT}`);
+  console.log(`Server is running on port {PORT}`);
 });
