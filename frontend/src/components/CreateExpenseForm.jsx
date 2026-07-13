@@ -1,6 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
+import PropTypes from "prop-types";
 const DEFAULT_ITEM = {
   category: "Lodging",
   title: "",
@@ -75,3 +76,7 @@ export default function CreateExpenseForm({ tripId, reloadExpenses }) {
     </Form>
   );
 }
+CreateExpenseForm.propTypes = {
+  tripId: PropTypes.string.isRequired,
+  reloadExpenses: PropTypes.func.isRequired,
+};
