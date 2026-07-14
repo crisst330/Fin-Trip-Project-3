@@ -3,6 +3,9 @@ import process from "process";
 import session from "express-session";
 import passport from "./config/passport.js";
 
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
 // Will import all of our routes here for later
 // import authRouter from "./router/Auth.js";
 
@@ -56,5 +59,5 @@ myapp.get("*splat", function (req, res) {
 });
 
 myapp.listen(PORT, () => {
-  console.log(`Server is running on port {PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
