@@ -1,6 +1,6 @@
 import express from "express";
 import { ObjectId } from "mongodb";
-import tripsDB from "../models/tripsDB.js";
+import tripsDB from "../../models/tripsDB.js";
 
 const router = express.Router();
 

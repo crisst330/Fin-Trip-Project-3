@@ -8,19 +8,19 @@ import { useUser } from "../context/UserContext.jsx";
 
 export default function TripDetailPage() {
   const user = useUser();
-  const { id } = useParams();
+  const { tripId } = useParams();
   const [trip, setTrip] = useState(null);
   const [query, setQuery] = useState("");
 
   const reloadTrip = useCallback(async () => {
-    const res = await fetch(`/api/trips/${id}`);
+    const res = await fetch(`/api/trips/${tripId}`);
     if (!res.ok) {
       console.error("Failed to fetch trip:", res.statusText);
       return;
     }
     const data = await res.json();
     setTrip(data);
-  }, [id]);
+  }, [tripId]);
 
   useEffect(() => {
     reloadTrip();
@@ -43,7 +43,7 @@ export default function TripDetailPage() {
         <Col md={8} xs={12}>
           <ExpenseList
             items={trip?.items || []}
-            tripId={id}
+            tripId={tripId}
             reloadExpenses={reloadTrip}
             query={query}
             setQuery={setQuery}
@@ -51,7 +51,7 @@ export default function TripDetailPage() {
         </Col>
         <Col md={4} xs={12}>
           {user ? (
-            <AddExpenseForm tripId={id} reloadTrip={reloadTrip} />
+            <AddExpenseForm tripId={tripId} reloadTrip={reloadTrip} />
           ) : (
             <p>
               Please <a href="/login">log in</a> to add a new expense.
