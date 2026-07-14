@@ -3,7 +3,6 @@ import process from "process";
 import session from "express-session";
 import passport from "./config/passport.js";
 
-
 // Will import all of our routes here for later
 // import authRouter from "./router/Auth.js";
 
