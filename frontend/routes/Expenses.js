@@ -1,10 +1,6 @@
 import express from "express";
 import { ObjectId } from "mongodb";
-<<<<<<< Updated upstream
 import tripsDB from "../../models/tripsDB.js";
-=======
-import tripsDB from "./models/TripsDB.js";
->>>>>>> Stashed changes
 
 const router = express.Router();
 
