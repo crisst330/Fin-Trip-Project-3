@@ -29,7 +29,8 @@ export default function DashboardPage() {
     <section>
       <h1>FinTrip Dashboard</h1>
       <p>
-        Plan trips by comparing projected expenses against a defined budget you set!
+        Plan trips by comparing projected expenses against a defined budget you
+        set!
       </p>
       {message ? (
         <Alert variant="success" className="mt-4">
