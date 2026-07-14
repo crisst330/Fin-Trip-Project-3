@@ -3,9 +3,6 @@ import process from "process";
 import session from "express-session";
 import passport from "./config/passport.js";
 
-// Will be used later
-// import { fileURLToPath } from 'url';
-// import { dirname, join } from 'path';
 
 // Will import all of our routes here for later
 // import authRouter from "./router/Auth.js";
@@ -35,7 +32,7 @@ myapp.use(passport.initialize());
 myapp.use(passport.session());
 
 // Will work once from the frontend (local server), we run the 'build' command to create the 'dist' folder
-// myapp.use("/", express.static("./frontend/dist"));
+myapp.use("/", express.static("./frontend/dist"));
 
 myapp.use(express.json());
 
@@ -46,8 +43,10 @@ myapp.use(express.json());
 // handling complex data structures.
 myapp.use(express.urlencoded({ extended: true }));
 
-myapp.get("/", (req, res) => {
-  res.send("Testing");
+myapp.get("/api/health", (req, res) => {
+  res.json({
+    message: "FinTrip backend is running",
+  });
 });
 
 // Will need to implement an index.html file here for this to work and also have already entered the command 'build' for access in the ./frontend/dist directory

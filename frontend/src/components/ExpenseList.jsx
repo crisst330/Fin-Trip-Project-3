@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ExpenseItem from "./ExpenseItem.jsx";
 import PropTypes from "prop-types";
 
