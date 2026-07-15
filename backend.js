@@ -2,12 +2,14 @@ import express from "express";
 import process from "process";
 import session from "express-session";
 import passport from "./config/passport.js";
-
+import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
 // Will import all of our routes here for later
 // import authRouter from "./router/Auth.js";
+
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
