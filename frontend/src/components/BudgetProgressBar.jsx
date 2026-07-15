@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-// In plain english, this component must recieve two numeric values: amount spent and budget cap.
+// In plain english, this component must recieve two numeric values (props): amount spent and budget cap.
 // Neither value may be omitted though.
 export default function BudgetProgressBar({ spent, budgetCap }) {
   const percentage =

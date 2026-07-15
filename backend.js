@@ -2,14 +2,10 @@ import express from "express";
 import process from "process";
 import session from "express-session";
 import passport from "./config/passport.js";
-import dotenv from "dotenv";
+import authRouter from "./routes/Auth.js";
+
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-
-// Will import all of our routes here for later
-// import authRouter from "./router/Auth.js";
-
-dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,11 +16,11 @@ const PORT = process.env.PORT || 3000;
 // Session configuration
 myapp.use(
   session({
-    secret: "your-secret-key-change-in-production",
+    secret: "fintrip-session-secret",
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: false, // Set to true in production with HTTPS
+      secure: false, 
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
     },
@@ -46,6 +42,8 @@ myapp.use(express.json());
 // arrays to be encoded into the URL-encoded format, which can be useful for
 // handling complex data structures.
 myapp.use(express.urlencoded({ extended: true }));
+
+myapp.use("/api/auth", authRouter);
 
 myapp.get("/api/health", (req, res) => {
   res.json({
