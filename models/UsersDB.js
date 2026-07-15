@@ -25,7 +25,7 @@ function UsersDB({
 
   // 1st Authentication function
   // Creates a user document resembling: { _id:, name:, email:, passwordHash: }
-  me.createUsers = async ({ name, email, passwordHash }) => {
+  me.createUser = async ({ name, email, passwordHash }) => {
     // Opens the MongoDB connection
     const { client, users } = await connect();
 

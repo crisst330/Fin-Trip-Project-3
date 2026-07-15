@@ -1,7 +1,5 @@
 import express from "express";
-// Hashes passwords
-import bcrypt from "bcrypt";
-
+import bcrypt from "bcrypt"; // Hashes passwords
 import usersDB from "../models/UsersDB.js";
 
 // Groups all authentication endpoints together (api routes)
@@ -30,13 +28,13 @@ router.post("/register", async (req, res) => {
         const passwordHash = await bcrypt.hash(password, 10);
 
         // Stores the current new user
-        const newUser = await usersDB.createUsers({
+        const newUser = await usersDB.createUser({
             name,
             email,
             passwordHash,
         });
 
-        res.status(201).json({
+        return res.status(201).json({
             _id: newUser._id,
             name: newUser.name,
             email: newUser.email,
@@ -44,7 +42,7 @@ router.post("/register", async (req, res) => {
     } catch (err) {
         console.error(err);
 
-        res.status(500).json({
+        return res.status(500).json({
             error: "Unable to register this user.",
         });
     }
