@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 import usersDB from "../models/UsersDB.js";
 
 // Groups all authentication endpoints together (api routes)
-const router = express.Router;
+const router = express.Router();
 
 router.post("/register", async (req, res) => {
     try {
@@ -50,5 +50,4 @@ router.post("/register", async (req, res) => {
     }
 });
 
-
-
+export default router;
