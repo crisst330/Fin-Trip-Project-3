@@ -1,7 +1,11 @@
 import express from "express";
 import tripsDB from "../models/TripsDB.js";
 
+import { isAuthenticated } from "../middleware/auth.js";
+
 const router = express.Router();
+
+router.use(isAuthenticated);
 
 router.get("/trips/", async (req, res) => {
   console.log("Received request to GET /api/trips/");
