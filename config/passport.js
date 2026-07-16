@@ -1,14 +1,63 @@
 import passport from "passport";
+import { Strategy as LocalStrategy } from "passport-local";
+import bcrypt from "bcrypt";
 
-// Temporary Passport configuration,
-// later, will add in LocalStrategy, MongoDB user lookup, bcrypt.compare, serialization by user ID and deserialization from MongoDB
+import usersDB from "../models/UsersDB.js";
 
+const strategy = new LocalStrategy(
+  {
+    usernameField: "email",
+    passwordField: "password",
+  },
+  async (email, password, done) => {
+    try {
+      const user = await usersDB.findUserByEmail(email);
+
+      if (!user) {
+        return done(null, false, {
+          message: "User or password incorrect",
+        });
+      }
+
+      const isValidPassword = await bcrypt.compare(
+        password,
+        user.passwordHash,
+      );
+
+      if (!isValidPassword) {
+        return done(null, false, {
+          message: "User or password incorrect",
+        });
+      }
+
+      return done(null, user);
+    } catch (error) {
+      return done(error);
+    }
+  },
+);
+
+passport.use(strategy);
+
+// After successfully logging in, Passport stores/saves the user ID in the session
 passport.serializeUser((user, done) => {
-  done(null, user);
+  done(null, user._id.toString());
 });
 
-passport.deserializeUser((user, done) => {
-  done(null, user);
+// For later requests, Passport takes the saved user ID, queries MongoDB, and places the user onto 
+// req.user, which protects future trip routes and recognizes know who is logging in
+passport.deserializeUser(async (userId, done) => {
+    try {
+        const user = await usersDB.findUserById(userId);
+
+        if(!user) {
+            return done(null, false);
+        }
+
+        return done(null, user);
+    } catch (err) {
+        return done(err);
+    }
 });
 
 export default passport;
