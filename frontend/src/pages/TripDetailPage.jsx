@@ -28,9 +28,10 @@ export default function TripDetailPage() {
   }, [tripId]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     reloadTrip();
   }, [reloadTrip]);
-  
+
   const totalCost =
     trip?.items?.reduce((sum, item) => sum + parseFloat(item.cost || 0), 0) ||
     0;
@@ -63,8 +64,7 @@ export default function TripDetailPage() {
             </p>
 
             <p>
-              <strong>Per-Person Cost:</strong> $
-              {perPersonCost.toFixed(2)}
+              <strong>Per-Person Cost:</strong> ${perPersonCost.toFixed(2)}
             </p>
           </div>
 
@@ -87,10 +87,7 @@ export default function TripDetailPage() {
 
         <Col md={4} xs={12}>
           {user ? (
-            <AddExpenseForm
-              tripId={tripId}
-              reloadTrip={reloadTrip}
-            />
+            <AddExpenseForm tripId={tripId} reloadTrip={reloadTrip} />
           ) : (
             <p>
               Please <Link to="/login">log in</Link> to add a new expense.
