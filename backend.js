@@ -49,6 +49,7 @@ myapp.use(express.urlencoded({ extended: true }));
 myapp.use("/api/auth", authRouter);
 myapp.use("/api/trips", tripsRouter);
 myapp.use("/api/trips", expensesRouter);
+
 myapp.get("/api/health", (req, res) => {
   res.json({
     message: "FinTrip backend is running",
