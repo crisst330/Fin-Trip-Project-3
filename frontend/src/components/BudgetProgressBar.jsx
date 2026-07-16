@@ -6,8 +6,7 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 export default function BudgetProgressBar({ spent, budgetCap }) {
   const percentage =
     budgetCap > 0
-      ? Math.min((spent / budgetCap) * 100, 100)
-      : 0;
+      ? Math.min((spent / budgetCap) * 100, 100) : 0;
 
   let variant = "success";
 
