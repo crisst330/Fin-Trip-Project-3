@@ -23,8 +23,15 @@ export default function TripDetailPage() {
   }, [tripId]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     reloadTrip();
   }, [reloadTrip]);
+
+  const totalCost =
+    trip?.items?.reduce((sum, item) => sum + parseFloat(item.cost || 0), 0) ||
+    0;
+  const perPersonCost =
+    trip && trip.travelers > 0 ? totalCost / trip.travelers : 0;
 
   return (
     <>
@@ -35,6 +42,7 @@ export default function TripDetailPage() {
           <p>{trip.description}</p>
           <p>Start Date: {trip.startDate}</p>
           <p>End Date: {trip.endDate}</p>
+          <p>Per Person Cost: ${perPersonCost.toFixed(2)}</p>
         </div>
       ) : (
         <p>Loading trip details...</p>

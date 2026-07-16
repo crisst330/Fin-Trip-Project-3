@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import ExpenseItem from "./ExpenseItem.jsx";
 import PropTypes from "prop-types";
 
