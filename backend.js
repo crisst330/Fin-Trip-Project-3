@@ -27,8 +27,9 @@ myapp.use(
   }),
 );
 
-// Initialize Passport
+// Initializes Passport
 myapp.use(passport.initialize());
+// Reads the session cookie (middleware)
 myapp.use(passport.session());
 
 // Will work once from the frontend (local server), we run the 'build' command to create the 'dist' folder

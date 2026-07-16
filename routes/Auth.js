@@ -94,4 +94,20 @@ router.get("/user", (req, res) => {
     });
 });
 
+router.get("/logout", (req, res) => {
+    req.logOut((error) => {
+        if (error) {
+            console.error(error);
+
+            return res.status(500).json({
+                error: "Unable to log out.",
+            });
+        }
+        // Otherwise, show/output logout successful 
+        return res.status(200).json({
+            message: "Logout successful",
+        });
+    })
+});
+
 export default router;
