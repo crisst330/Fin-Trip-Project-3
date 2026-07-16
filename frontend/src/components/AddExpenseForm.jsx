@@ -10,7 +10,7 @@ const DEFAULT_ITEM = {
   cost: "",
   status: "estimated",
 };
-export default function CreateExpenseForm({ tripId, reloadExpenses }) {
+export default function CreateExpenseForm({ tripId, reloadTrip }) {
   const [item, setItem] = useState(DEFAULT_ITEM);
   const onSubmit = async (evt) => {
     evt.preventDefault();
@@ -31,7 +31,7 @@ export default function CreateExpenseForm({ tripId, reloadExpenses }) {
     const data = await res.json();
     console.log("Expense created successfully:", data);
     setItem(DEFAULT_ITEM);
-    reloadExpenses();
+    reloadTrip();
   };
   return (
     <Form onSubmit={onSubmit} className="create-expense-card">
@@ -81,5 +81,5 @@ export default function CreateExpenseForm({ tripId, reloadExpenses }) {
 }
 CreateExpenseForm.propTypes = {
   tripId: PropTypes.string.isRequired,
-  reloadExpenses: PropTypes.func.isRequired,
+  reloadTrip: PropTypes.func.isRequired,
 };

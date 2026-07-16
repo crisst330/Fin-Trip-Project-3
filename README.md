@@ -22,7 +22,7 @@ _[Add a screenshot of the running app here once deployed]_
 
 ## Slideshow Presentation
 
-link here
+https://docs.google.com/presentation/d/1PRmUyS2YgYATipQZAFH7PVRAGdb20MQO/edit?usp=sharing&ouid=109450555598504419581&rtpof=true&sd=true 
 
 ---
 
