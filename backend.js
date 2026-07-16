@@ -3,6 +3,7 @@ import process from "process";
 import session from "express-session";
 import passport from "./config/passport.js";
 import authRouter from "./routes/Auth.js";
+import tripsRouter from "./routes/Trips.js";
 
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
@@ -45,6 +46,7 @@ myapp.use(express.json());
 myapp.use(express.urlencoded({ extended: true }));
 
 myapp.use("/api/auth", authRouter);
+myapp.use("/api/trips", tripsRouter);
 
 myapp.get("/api/health", (req, res) => {
   res.json({

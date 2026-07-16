@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.use(isAuthenticated);
 
-router.get("/trips/", async (req, res) => {
+router.get("/", async (req, res) => {
   console.log("Received request to GET /api/trips/");
   try {
     const trips = await tripsDB.getTrips(req.user._id);
@@ -18,7 +18,7 @@ router.get("/trips/", async (req, res) => {
   }
 });
 
-router.get("/trips/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   console.log("Received request to GET /api/trips/:id", req.params.id);
   try {
     const trip = await tripsDB.getTripById(req.params.id, req.user._id);
@@ -33,7 +33,7 @@ router.get("/trips/:id", async (req, res) => {
   }
 });
 
-router.post("/trips/", async (req, res) => {
+router.post("/", async (req, res) => {
   console.log("Received request to POST /api/trips/", req.body);
   try {
     const newTrip = await tripsDB.createTrip({
@@ -47,7 +47,7 @@ router.post("/trips/", async (req, res) => {
   }
 });
 
-router.put("/trips/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   console.log(
     "Received request to PUT /api/trips/:id",
     req.params.id,
@@ -66,7 +66,7 @@ router.put("/trips/:id", async (req, res) => {
   }
 });
 
-router.delete("/trips/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   console.log("Received request to DELETE /api/trips/:id", req.params.id);
   try {
     await tripsDB.deleteTrip(req.params.id, req.user._id);
