@@ -1,0 +1,10 @@
+.about-page {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-page ul {
+  display: inline-block;
+  text-align: left;
+}

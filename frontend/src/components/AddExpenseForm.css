@@ -1,0 +1,7 @@
+.create-expense-card {
+  background: var(--white);
+  border: 1px solid var(--offwhite);
+  border-left: 4px solid var(--green);
+  border-radius: 4px;
+  padding: 1.25rem;
+}

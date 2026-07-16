@@ -7,6 +7,7 @@ import ExpenseList from "../components/ExpenseList.jsx";
 import AddExpenseForm from "../components/AddExpenseForm.jsx";
 import BudgetSummary from "../components/BudgetSummary.jsx";
 import { useUser } from "../context/UserContext.jsx";
+import "./TripDetailPage.css";
 
 export default function TripDetailPage() {
   const { user } = useUser();
@@ -64,7 +65,10 @@ export default function TripDetailPage() {
             </p>
 
             <p>
-              <strong>Per-Person Cost:</strong> ${perPersonCost.toFixed(2)}
+              <strong>Per-Person Cost:</strong>{" "}
+              <span className="per-person-highlight">
+                ${perPersonCost.toFixed(2)}
+              </span>
             </p>
           </div>
 

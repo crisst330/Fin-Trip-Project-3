@@ -1,0 +1,50 @@
+.expense-item {
+  background: var(--white);
+  border: 1px solid var(--offwhite);
+  border-top: 3px dashed var(--offwhite);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.expense-title {
+  font-weight: 700;
+  color: var(--military-green);
+  margin: 0 0 0.5rem;
+}
+
+.expense-cost {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.status-badge {
+  display: inline-block;
+  border: 2px solid;
+  border-radius: 3px;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: rotate(-3deg);
+}
+
+.status-estimated {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(218, 165, 32, 0.1);
+}
+
+.status-booked {
+  color: var(--green);
+  border-color: var(--green);
+  background: rgba(46, 139, 87, 0.1);
+}
+
+.expense-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import PropTypes from "prop-types";
+import "./ExpenseItem.css";
 
 export default function ExpenseItem({ item, tripId, reloadExpenses }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -108,16 +109,27 @@ export default function ExpenseItem({ item, tripId, reloadExpenses }) {
         </Form>
       ) : (
         <div>
-          <h4>{item.title}</h4>
+          <h4 className="expense-title">{item.title}</h4>
           <p>Category: {item.category}</p>
-          <p>Cost: ${item.cost.toFixed(2)}</p>
-          <p>Status: {item.status}</p>
-          <Button variant="warning" onClick={() => setIsEditing(true)}>
-            Edit
-          </Button>{" "}
-          <Button variant="danger" onClick={onDelete}>
-            Delete
-          </Button>
+          <p className="expense-cost">Cost: ${item.cost.toFixed(2)}</p>
+          <p>
+            Status:{" "}
+            <span
+              className={`status-badge ${
+                item.status === "booked" ? "status-booked" : "status-estimated"
+              }`}
+            >
+              {item.status}
+            </span>
+          </p>
+          <div className="expense-actions">
+            <Button variant="warning" onClick={() => setIsEditing(true)}>
+              Edit
+            </Button>
+            <Button variant="danger" onClick={onDelete}>
+              Delete
+            </Button>
+          </div>
         </div>
       )}
     </div>

@@ -1,0 +1,28 @@
+.app-navbar {
+  background: var(--military-green);
+  border-bottom: 3px solid var(--gold);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.app-navbar .navbar-brand {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.app-navbar .navbar-brand:hover {
+  color: var(--gold);
+}
+
+.app-navbar .nav-link {
+  color: var(--offwhite);
+}
+
+.app-navbar .nav-link:hover,
+.app-navbar .nav-link:focus {
+  color: var(--gold);
+}
+
+.app-navbar .navbar-text {
+  color: var(--offwhite);
+}

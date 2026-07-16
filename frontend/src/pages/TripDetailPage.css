@@ -1,0 +1,9 @@
+.per-person-highlight {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  color: var(--green);
+  background: rgba(46, 139, 87, 0.12);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}

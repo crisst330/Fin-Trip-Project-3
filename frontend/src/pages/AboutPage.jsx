@@ -1,6 +1,8 @@
+import "./AboutPage.css";
+
 export default function AboutPage() {
   return (
-    <div className="container mt-5">
+    <div className="about-page mt-5">
       <h1>About FinTrip</h1>
       <p>
         FinTrip is a simple web application designed to help you manage your

@@ -1,0 +1,25 @@
+.expense-list-heading {
+  color: var(--military-green);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.expense-list-filter {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--offwhite);
+  border-radius: 4px;
+  background: var(--white);
+  color: var(--military-green);
+}
+
+.expense-list-filter:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.expense-empty {
+  color: var(--gray);
+  font-style: italic;
+}

@@ -2,6 +2,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import PropTypes from "prop-types";
+import "./AddExpenseForm.css";
 
 const DEFAULT_ITEM = {
   category: "Lodging",
@@ -33,7 +34,7 @@ export default function CreateExpenseForm({ tripId, reloadExpenses }) {
     reloadExpenses();
   };
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit} className="create-expense-card">
       <h3>Create New Expense</h3>
       <Form.Group className="mb-3" controlId="expenseCategory">
         <Form.Select

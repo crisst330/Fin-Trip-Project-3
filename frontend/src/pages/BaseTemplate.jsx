@@ -25,17 +25,19 @@ export default function BaseTemplate({ children }) {
   }, []);
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <Container>
+      <div className="page-wrapper">
         <NavigationBar />
-        {children}
-        <footer className="text-center mt-5">
+        <Container as="main" className="main-content">
+          {children}
+        </Container>
+        <footer className="site-footer text-center mt-5">
           <hr />
           <p>
             &copy; {new Date().getFullYear()} FinTrip by Timothy Criss Jr &
             Priamos Koumas. All rights reserved.
           </p>
         </footer>
-      </Container>
+      </div>
     </UserContext.Provider>
   );
 }

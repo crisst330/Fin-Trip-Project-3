@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import { Link, useNavigate } from "react-router";
 
 import { useUser } from "../context/UserContext.jsx";
+import "./NavigationBar.css";
 
 export default function NavigationBar() {
   const { user, setUser } = useUser();
@@ -26,7 +27,7 @@ export default function NavigationBar() {
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
+    <Navbar expand="lg" className="app-navbar" data-bs-theme="dark">
       <Container>
         <Navbar.Brand as={Link} to="/">
           FinTrip
@@ -35,7 +36,7 @@ export default function NavigationBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="ms-auto">
             <Nav.Link as={Link} to="/about">
               About
             </Nav.Link>

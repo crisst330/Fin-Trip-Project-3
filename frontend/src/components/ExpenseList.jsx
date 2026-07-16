@@ -1,5 +1,6 @@
 import ExpenseItem from "./ExpenseItem.jsx";
 import PropTypes from "prop-types";
+import "./ExpenseList.css";
 
 export default function ExpenseList({
   items,
@@ -34,14 +35,15 @@ export default function ExpenseList({
 
   return (
     <div>
-      <h2>Expenses</h2>
+      <h2 className="expense-list-heading">Expenses</h2>
       <input
+        className="expense-list-filter"
         value={query}
         onChange={onQuery}
         placeholder="Filter expenses..."
       />
       {!items?.length ? (
-        <div>Expenses will appear here</div>
+        <div className="expense-empty">Expenses will appear here</div>
       ) : (
         filteredItems.map(renderExpense)
       )}
