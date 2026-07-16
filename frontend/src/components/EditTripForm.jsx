@@ -5,173 +5,157 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 export default function EditTripForm({ trip, reloadTrip, closeEditForm }) {
-    const [formData, setFormData] = useState({
-        name: trip.name,
-        destination: trip.destination,
-        startDate: trip.startDate,
-        endDate: trip.endDate,
-        travelers: trip.travelers,
-        budgetCap: trip.budgetCap,
+  const [formData, setFormData] = useState({
+    name: trip.name,
+    destination: trip.destination,
+    startDate: trip.startDate,
+    endDate: trip.endDate,
+    travelers: trip.travelers,
+    budgetCap: trip.budgetCap,
+  });
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData({
+      ...formData,
+      [name]: value,
     });
+  };
 
-    const [errorMessage, setErrorMessage] = useState("");
-    const [isSubmitting, setIsSubmitting] = useState(false);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
+    setErrorMessage("");
+    setIsSubmitting(true);
 
-        setFormData({
-            ...formData, 
-            [name]: value,
-        });
+    const payload = {
+      ...formData,
+      travelers: Number(formData.travelers),
+      budgetCap: Number(formData.budgetCap),
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    try {
+      const response = await fetch(`/api/trips/${trip._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-        setErrorMessage("");
-        setIsSubmitting(true);
+      const data = await response.json();
 
-        const payload = {
-            ...formData,
-            travelers: Number(formData.travelers),
-            budgetCap: Number(formData.budgetCap),
-        };
+      if (!response.ok) {
+        setErrorMessage(data.error || "Unable to update the trip.");
+        return;
+      }
 
-        try {
-            const response = await fetch(`/api/trips/${trip._id}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(payload),
-            });
+      await reloadTrip();
+      closeEditForm();
+    } catch (error) {
+      console.error("Update trip error:", error);
+      setErrorMessage("Unable to connect to the server.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
-            const data = await response.json();
+  return (
+    <section className="mt-3">
+      <h3>Edit Trip</h3>
 
-            if (!response.ok) {
-                setErrorMessage(data.error || "Unable to update the trip.");
-                return;
-            }
+      {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
 
-            await reloadTrip();
-            closeEditForm();
-        } catch (error) {
-            console.error("Update trip error:", error);
-            setErrorMessage("Unable to connect to the server.");
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId={`edit-name-${trip._id}`}>
+          <Form.Label>Trip Name</Form.Label>
+          <Form.Control
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-    return (
-        <section className="mt-3">
-            <h3>Edit Trip</h3>
+        <Form.Group className="mb-3" controlId={`edit-destination-${trip._id}`}>
+          <Form.Label>Destination</Form.Label>
+          <Form.Control
+            type="text"
+            name="destination"
+            value={formData.destination}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-            {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+        <Form.Group className="mb-3" controlId={`edit-start-date-${trip._id}`}>
+          <Form.Label>Start Date</Form.Label>
+          <Form.Control
+            type="date"
+            name="startDate"
+            value={formData.startDate}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId={`edit-name-${trip._id}`}>
-                    <Form.Label>Trip Name</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                    />
-                </Form.Group>
+        <Form.Group className="mb-3" controlId={`edit-end-date-${trip._id}`}>
+          <Form.Label>End Date</Form.Label>
+          <Form.Control
+            type="date"
+            name="endDate"
+            value={formData.endDate}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-                <Form.Group
-                    className="mb-3"
-                    controlId={`edit-destination-${trip._id}`}
-                >
-                    <Form.Label>Destination</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="destination"
-                        value={formData.destination}
-                        onChange={handleChange}
-                        required
-                    />
-                </Form.Group>
+        <Form.Group className="mb-3" controlId={`edit-travelers-${trip._id}`}>
+          <Form.Label>Number of Travelers</Form.Label>
+          <Form.Control
+            type="number"
+            name="travelers"
+            min="1"
+            value={formData.travelers}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-                <Form.Group
-                    className="mb-3"
-                    controlId={`edit-start-date-${trip._id}`}
-                >
-                    <Form.Label>Start Date</Form.Label>
-                    <Form.Control
-                        type="date"
-                        name="startDate"
-                        value={formData.startDate}
-                        onChange={handleChange}
-                        required
-                    />
-                </Form.Group>
+        <Form.Group className="mb-3" controlId={`edit-budget-cap-${trip._id}`}>
+          <Form.Label>Budget Cap</Form.Label>
+          <Form.Control
+            type="number"
+            name="budgetCap"
+            min="1"
+            step="0.01"
+            value={formData.budgetCap}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-                <Form.Group
-                    className="mb-3"
-                    controlId={`edit-end-date-${trip._id}`}
-                >
-                    <Form.Label>End Date</Form.Label>
-                    <Form.Control
-                        type="date"
-                        name="endDate"
-                        value={formData.endDate}
-                        onChange={handleChange}
-                        required
-                    />
-                </Form.Group>
+        <Button type="submit" disabled={isSubmitting} className="me-2">
+          {isSubmitting ? "Saving..." : "Save Changes"}
+        </Button>
 
-                <Form.Group
-                    className="mb-3"
-                    controlId={`edit-travelers-${trip._id}`}
-                >
-                    <Form.Label>Number of Travelers</Form.Label>
-                    <Form.Control
-                        type="number"
-                        name="travelers"
-                        min="1"
-                        value={formData.travelers}
-                        onChange={handleChange}
-                        required
-                    />
-                </Form.Group>
-
-                <Form.Group
-                    className="mb-3"
-                    controlId={`edit-budget-cap-${trip._id}`}
-                >
-                    <Form.Label>Budget Cap</Form.Label>
-                    <Form.Control
-                        type="number"
-                        name="budgetCap"
-                        min="1"
-                        step="0.01"
-                        value={formData.budgetCap}
-                        onChange={handleChange}
-                        required
-                    />
-                </Form.Group>
-
-                <Button type="submit" disabled={isSubmitting} className="me-2">
-                    {isSubmitting ? "Saving..." : "Save Changes"}
-                </Button>
-
-                <Button
-                    type="button"
-                    variant="secondary"
-                    onClick={closeEditForm}
-                    disabled={isSubmitting}
-                >
-                    Cancel
-                </Button>
-            </Form>
-        </section>
-    );
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={closeEditForm}
+          disabled={isSubmitting}
+        >
+          Cancel
+        </Button>
+      </Form>
+    </section>
+  );
 }
-
 
 EditTripForm.propTypes = {
   trip: PropTypes.shape({
