@@ -19,10 +19,7 @@ const strategy = new LocalStrategy(
         });
       }
 
-      const isValidPassword = await bcrypt.compare(
-        password,
-        user.passwordHash,
-      );
+      const isValidPassword = await bcrypt.compare(password, user.passwordHash);
 
       if (!isValidPassword) {
         return done(null, false, {
@@ -44,19 +41,19 @@ passport.serializeUser((user, done) => {
   done(null, user._id.toString());
 });
 
-// For later requests, Passport takes the saved user ID, queries MongoDB, and places the user onto 
+// For later requests, Passport takes the saved user ID, queries MongoDB, and places the user onto
 // req.user, which allows protected routes to identify the logged-in user.
 passport.deserializeUser(async (userId, done) => {
-    try {
-        const user = await usersDB.findUserById(userId);
+  try {
+    const user = await usersDB.findUserById(userId);
 
-        if(!user) {
-            return done(null, false);
-        }
-        return done(null, user);
-    } catch (err) {
-        return done(err);
+    if (!user) {
+      return done(null, false);
     }
+    return done(null, user);
+  } catch (err) {
+    return done(err);
+  }
 });
 
 export default passport;

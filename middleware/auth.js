@@ -1,9 +1,9 @@
 export const isAuthenticated = (req, res, next) => {
-    if (req.isAuthenticated()) {
-        return next();
-    }
+  if (req.isAuthenticated()) {
+    return next();
+  }
 
-    return res.status(401).json({
-        error: "Current user not authenticated.",
-    });
+  return res.status(401).json({
+    error: "Current user not authenticated.",
+  });
 };

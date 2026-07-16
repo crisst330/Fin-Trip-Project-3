@@ -68,10 +68,9 @@ function UsersDB({
   // 3rd Authentication function
   // Passport will use this when restoring logged-in users from their assocated sessions.
   me.findUserById = async (userId) => {
-
     // Prevents MongoDB from throwing an error if an invalid ID reaches this function
     if (!ObjectId.isValid(userId)) {
-        return null;
+      return null;
     }
 
     // Opens the MongoDB connection

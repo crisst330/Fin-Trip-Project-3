@@ -1,110 +1,110 @@
 import { useState } from "react";
-import { useNavigate} from "react-router";
+import { useNavigate } from "react-router";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 export default function RegisterPage() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        password: "",
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData({
+      ...formData,
+      [name]: value,
     });
+  };
 
-    const [errorMessage, setErrorMessage] = useState("");
-    const [isSubmitting, setIsSubmitting] = useState(false);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
+    setErrorMessage("");
+    setIsSubmitting(true);
 
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
+    try {
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+      const data = await response.json();
 
-        setErrorMessage("");
-        setIsSubmitting(true);
+      if (!response.ok) {
+        setErrorMessage(data.error || "Unable to register at this time.");
+        return;
+      }
 
-        try {
-            const response = await fetch("/api/auth/register", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
+      navigate("/login");
+    } catch (error) {
+      console.error("Registration error:", error);
+      setErrorMessage("Cannot connect to the server at this time.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
-            const data = await response.json();
+  return (
+    <section>
+      <h1>Create an Account</h1>
 
-            if (!response.ok) {
-                setErrorMessage(data.error || "Unable to register at this time.");
-                return;
-            }
+      <p>Register to create and manage your FinTrip travel plans.</p>
 
-            navigate("/login");
-        } catch (error) {
-            console.error("Registration error:", error);
-            setErrorMessage("Cannot connect to the server at this time.");
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
+      {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
 
-    return (
-        <section>
-            <h1>Create an Account</h1>
-            
-            <p>Register to create and manage your FinTrip travel plans.</p>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="register-name">
+          <Form.Label>Name</Form.Label>
 
-            {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+          <Form.Control
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="register-name">
-                    <Form.Label>Name</Form.Label>
+        <Form.Group className="mb-3" controlId="register-email">
+          <Form.Label>Email</Form.Label>
 
-                    <Form.Control
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                    />
-                </Form.Group>
+          <Form.Control
+            type="text"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-                <Form.Group className="mb-3" controlId="register-email">
-                    <Form.Label>Email</Form.Label>
+        <Form.Group className="mb-3" controlId="register-password">
+          <Form.Label>Password</Form.Label>
 
-                    <Form.Control
-                        type="text"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                </Form.Group>
+          <Form.Control
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-                <Form.Group className="mb-3" controlId="register-password">
-                    <Form.Label>Password</Form.Label>
-
-                    <Form.Control
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                </Form.Group>
-
-                <Button type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? "Creating an account..." : "Create Account"}
-                </Button>
-            </Form>
-        </section>
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Creating an account..." : "Create Account"}
+        </Button>
+      </Form>
+    </section>
   );
 }

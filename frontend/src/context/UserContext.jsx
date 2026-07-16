@@ -9,6 +9,6 @@ export const useUser = () => {
   if (context === null) {
     console.warn("useUser must be used within a UserContext.Provider");
   }
-  
+
   return context;
 };

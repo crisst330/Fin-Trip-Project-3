@@ -21,9 +21,7 @@ function TripsDB({
     const { client, trips } = await connect();
 
     try {
-      return await trips.find({ownerId: new ObjectId(ownerId),
-      })
-      .toArray();
+      return await trips.find({ ownerId: new ObjectId(ownerId) }).toArray();
     } catch (error) {
       console.error("Error finding trips:", error);
       throw error;
@@ -69,7 +67,7 @@ function TripsDB({
       const trip = {
         ownerId: new ObjectId(ownerId),
         name,
-        destination, 
+        destination,
         startDate,
         endDate,
         travelers,
@@ -83,7 +81,7 @@ function TripsDB({
         ...trip,
         _id: result.insertedId,
       };
-    } catch (error) { 
+    } catch (error) {
       console.error("Error creating trip:", error);
       throw error;
     } finally {
@@ -110,8 +108,8 @@ function TripsDB({
 
       return await trips.findOneAndUpdate(
         {
-         _id: new ObjectId(tripId),
-         ownerId: new ObjectId(ownerId), 
+          _id: new ObjectId(tripId),
+          ownerId: new ObjectId(ownerId),
         },
         {
           $set: updatedFields,
