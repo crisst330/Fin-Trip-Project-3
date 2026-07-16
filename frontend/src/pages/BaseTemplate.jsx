@@ -1,5 +1,6 @@
 import NavigationBar from "../components/NavigationBar.jsx";
 import Container from "react-bootstrap/Container";
+import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import { UserContext } from "../context/UserContext.jsx";
 
@@ -11,7 +12,7 @@ export default function BaseTemplate({ children }) {
         const res = await fetch("/api/auth/user");
         if (res.ok) {
           const data = await res.json();
-          setUser(data.user);
+          setUser(data);
         } else {
           setUser(null);
         }
@@ -23,7 +24,7 @@ export default function BaseTemplate({ children }) {
     fetchUser();
   }, []);
   return (
-    <UserContext.Provider value={user}>
+    <UserContext.Provider value={{ user, setUser }}>
       <Container>
         <NavigationBar />
         {children}
@@ -38,3 +39,7 @@ export default function BaseTemplate({ children }) {
     </UserContext.Provider>
   );
 }
+
+BaseTemplate.propTypes = {
+  children: PropTypes.node.isRequired,
+};

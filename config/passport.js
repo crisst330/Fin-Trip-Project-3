@@ -45,7 +45,7 @@ passport.serializeUser((user, done) => {
 });
 
 // For later requests, Passport takes the saved user ID, queries MongoDB, and places the user onto 
-// req.user, which protects future trip routes and recognizes know who is logging in
+// req.user, which allows protected routes to identify the logged-in user.
 passport.deserializeUser(async (userId, done) => {
     try {
         const user = await usersDB.findUserById(userId);

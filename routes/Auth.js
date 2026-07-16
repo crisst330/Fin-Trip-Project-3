@@ -57,7 +57,7 @@ router.post("/login", (req, res, next) => {
             console.error(error);
 
             return res.status(500).json({
-                error: "Unable to login in at this time."
+                error: "Unable to log in in at this time."
             });
         }
 
@@ -77,7 +77,7 @@ router.post("/login", (req, res, next) => {
                 email: user.email,
             });
         });
-    }) (req, res, next);
+    })(req, res, next);
 });
 
 router.get("/user", (req, res) => {
@@ -95,7 +95,7 @@ router.get("/user", (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-    req.logOut((error) => {
+    req.logout((error) => {
         if (error) {
             console.error(error);
 
@@ -107,7 +107,7 @@ router.get("/logout", (req, res) => {
         return res.status(200).json({
             message: "Logout successful",
         });
-    })
+    });
 });
 
 export default router;
