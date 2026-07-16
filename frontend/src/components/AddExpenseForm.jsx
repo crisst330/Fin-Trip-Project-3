@@ -5,21 +5,22 @@ import PropTypes from "prop-types";
 const DEFAULT_ITEM = {
   category: "Lodging",
   title: "",
-  cost: 0,
+  cost: "",
   status: "estimated",
 };
 export default function CreateExpenseForm({ tripId, reloadExpenses }) {
   const [item, setItem] = useState(DEFAULT_ITEM);
   const onSubmit = async (evt) => {
     evt.preventDefault();
-    console.log("🏓 onSubmit", item);
+    const payload = { ...item, cost: parseFloat(item.cost) || 0 };
+    console.log("🏓 onSubmit", payload);
 
     const res = await fetch(`/api/trips/${tripId}/items`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(item),
+      body: JSON.stringify(payload),
     });
     if (!res.ok) {
       console.error("Failed to create expense:", res.statusText);
@@ -58,7 +59,7 @@ export default function CreateExpenseForm({ tripId, reloadExpenses }) {
           type="number"
           value={item.cost}
           placeholder="Enter cost"
-          onChange={(e) => setItem({ ...item, cost: +e.target.value })}
+          onChange={(e) => setItem({ ...item, cost: e.target.value })}
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="expenseStatus">
