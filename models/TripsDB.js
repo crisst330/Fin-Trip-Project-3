@@ -70,8 +70,8 @@ function TripsDB({
         destination,
         startDate,
         endDate,
-        travelers,
-        budgetCap,
+        travelers: Number(travelers),
+        budgetCap: Number(budgetCap),
         items: [],
       };
 
