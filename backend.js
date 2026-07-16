@@ -4,6 +4,7 @@ import session from "express-session";
 import passport from "./config/passport.js";
 import authRouter from "./routes/Auth.js";
 import tripsRouter from "./routes/Trips.js";
+import expensesRouter from "./routes/Expenses.js";
 
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
@@ -21,7 +22,7 @@ myapp.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: false, 
+      secure: false,
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
     },
@@ -47,7 +48,7 @@ myapp.use(express.urlencoded({ extended: true }));
 
 myapp.use("/api/auth", authRouter);
 myapp.use("/api/trips", tripsRouter);
-
+myapp.use("/api/trips", expensesRouter);
 myapp.get("/api/health", (req, res) => {
   res.json({
     message: "FinTrip backend is running",

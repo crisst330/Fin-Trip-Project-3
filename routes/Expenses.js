@@ -1,10 +1,12 @@
 import express from "express";
 import { ObjectId } from "mongodb";
-import tripsDB from "../../models/tripsDB.js";
+import tripsDB from "../models/tripsDB.js";
+import { isAuthenticated } from "../middleware/auth.js";
 
 const router = express.Router();
+router.use(isAuthenticated);
 
-router.post("/trips/:id/items", async (req, res) => {
+router.post("/:id/items", async (req, res) => {
   console.log("POST /api/trips/:id/items", req.params.id, req.body);
   const { id } = req.params;
   const { category, title, cost, status, link, notes } = req.body;
@@ -29,7 +31,7 @@ router.post("/trips/:id/items", async (req, res) => {
   }
 });
 
-router.put("/trips/:id/items/:itemId", async (req, res) => {
+router.put("/:id/items/:itemId", async (req, res) => {
   console.log(
     "PUT /api/trips/:id/items/:itemId",
     req.params.id,
@@ -57,7 +59,7 @@ router.put("/trips/:id/items/:itemId", async (req, res) => {
   }
 });
 
-router.delete("/trips/:id/items/:itemId", async (req, res) => {
+router.delete("/:id/items/:itemId", async (req, res) => {
   console.log(
     "DELETE /api/trips/:id/items/:itemId",
     req.params.id,
