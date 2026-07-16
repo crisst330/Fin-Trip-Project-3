@@ -4,6 +4,8 @@ import passport from "passport";
 
 import usersDB from "../models/UsersDB.js";
 
+import { isAuthenticated } from "../middleware/auth.js";
+
 // Groups all authentication endpoints together (api routes)
 const router = express.Router();
 
@@ -80,13 +82,7 @@ router.post("/login", (req, res, next) => {
     })(req, res, next);
 });
 
-router.get("/user", (req, res) => {
-    if (!req.isAuthenticated()) {
-        return res.status(401).json({
-            error: "This user is not authenticated.",
-        });
-    }
-
+router.get("/user", isAuthenticated, (req, res) => {
     return res.status(200).json({
         _id: req.user._id,
         name: req.user.name,
