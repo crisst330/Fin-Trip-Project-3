@@ -56,7 +56,6 @@ myapp.get("/api/health", (req, res) => {
   });
 });
 
-// Will need to implement an index.html file here for this to work and also have already entered the command 'build' for access in the ./frontend/dist directory
 myapp.get("*splat", function (req, res) {
   res.sendFile("index.html", {
     root: join(__dirname, "./frontend/dist"),
