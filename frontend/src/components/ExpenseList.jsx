@@ -41,7 +41,7 @@ export default function ExpenseList({
         placeholder="Filter expenses..."
       />
       {!items?.length ? (
-        <div>Loading expenses...</div>
+        <div>Expenses will appear here</div>
       ) : (
         filteredItems.map(renderExpense)
       )}
