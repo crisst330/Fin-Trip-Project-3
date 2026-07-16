@@ -102,7 +102,7 @@ function TripsDB({
         destination: updates.destination,
         startDate: updates.startDate,
         endDate: updates.endDate,
-        travels: Number(updates.travelers),
+        travelers: Number(updates.travelers),
         budgetCap: Number(updates.budgetCap),
       };
 
