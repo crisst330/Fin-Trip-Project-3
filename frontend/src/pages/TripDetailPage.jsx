@@ -26,13 +26,13 @@ export default function TripDetailPage() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     reloadTrip();
   }, [reloadTrip]);
-
+  
   const totalCost =
-    trip?.items?.reduce((sum, item) => sum + parseFloat(item.cost || 0), 0) ||
-    0;
+    trip?.items?.reduce((sum, item) => sum + parseFloat(item.cost || 0), 0) || 0;
+    
   const perPersonCost =
     trip && trip.travelers > 0 ? totalCost / trip.travelers : 0;
-
+    
   return (
     <>
       <h1>Trip Detail Page</h1>
