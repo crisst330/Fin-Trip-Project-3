@@ -4,7 +4,7 @@ import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-export default function EditTripForm({ trip, reloadTrip, closeEditForm }) {
+export default function EditTripForm({ trip, reloadTrips, closeEditForm }) {
   const [formData, setFormData] = useState({
     name: trip.name,
     destination: trip.destination,
@@ -54,7 +54,7 @@ export default function EditTripForm({ trip, reloadTrip, closeEditForm }) {
         return;
       }
 
-      await reloadTrip();
+      await reloadTrips();
       closeEditForm();
     } catch (error) {
       console.error("Update trip error:", error);
