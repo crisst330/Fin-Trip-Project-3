@@ -148,7 +148,7 @@ function TripsDB({
     }
   };
 
-  me.addItem = async (tripId, item) => {
+  me.addItem = async (tripId, ownerId, item) => {
     const { client, trips } = await connect();
 
     try {
@@ -197,7 +197,7 @@ function TripsDB({
     }
   };
 
-  me.deleteItem = async (tripId, itemId) => {
+  me.deleteItem = async (tripId, ownerId, itemId) => {
     const { client, trips } = await connect();
 
     try {
