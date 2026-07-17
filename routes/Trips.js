@@ -48,15 +48,6 @@ router.post("/", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  console.log(
-    "Received request to PUT /api/trips/:id",
-    req.params.id,
-    req.body,
-  );
-
-  console.log("Travelers received by route:", req.body.travelers);
-  console.log("Traveler value type:", typeof req.body.travelers);
-
   try {
     const updatedTrip = await tripsDB.updateTrip(
       req.params.id,
@@ -69,8 +60,6 @@ router.put("/:id", async (req, res) => {
         error: "Trip not found.",
       });
     }
-
-    console.log("Updated trip returned:", updatedTrip);
 
     return res.status(200).json(updatedTrip);
   } catch (error) {
