@@ -170,9 +170,70 @@ App runs on `http://localhost:5173`.
 
 ---
 
-## GenAI Disclosure
+## Use of Generative AI
+
+### Student 1 — Timothy Criss Jr. (Authentication, Trip Management & Budget Visualization)
+
+#### GenAI Usage
+
+AI assistance for the authentication system, trip management features, and budget visualization was used for:
+
+- brainstorming and refining the overall application architecture and user authentication workflow
+- discussing Passport.js authentication concepts, session management, and protected route design
+- explaining React Context (`UserContext`) and authenticated client-side state management
+- clarifying Express route responsibilities, middleware organization, and MVC separation of concerns
+- explaining MongoDB native driver CRUD operations (without Mongoose) for users, trips, and embedded expense data
+- discussing implementation approaches for user registration, login, logout, and authenticated session persistence
+- reviewing React Hooks usage (`useState`, `useEffect`, `useCallback`, and `useContext`) throughout the application
+- assisting with debugging frontend/backend integration, API communication, and authenticated request flow
+- explaining request/response flow between React components, Express routes, Passport, sessions, and MongoDB
+- discussing reusable React component design, prop passing, callback functions, and state synchronization
+- assisting with implementation of trip management features including creating, editing, deleting, and displaying trips
+- reviewing implementation approaches for budget calculations, budget summaries, and dynamic progress bar visualization
+- helping troubleshoot React rendering behavior, asynchronous state updates, and component refresh workflows
+- explaining MongoDB update operators (`$set`, `$push`, `$pull`) and embedded document modification patterns
+- refining comments, documentation wording, and project organization for readability and maintainability
+
+Additional development and deployment assistance included:
+
+- explaining secure password hashing using bcrypt and Passport Local Strategy
+- discussing session-based authentication and protected backend routes
+- helping diagnose MongoDB connection issues and native driver configuration
+- troubleshooting Express routing, middleware ordering, and backend startup errors
+- assisting with Vite development server integration and frontend/backend communication
+- reviewing project structure, repository organization, and file responsibilities
+- helping troubleshoot Git workflow issues, merge conflicts, and debugging strategies
+- reviewing README documentation and deployment instructions for clarity and completeness
+- assisting with application testing using Thunder Client and browser developer tools
+
+Generated suggestions were reviewed, adapted, and manually implemented into the final project.
+
+#### GenAI Tool Information
+
+- **Tool Used:** ChatGPT
+- **Model Used:** GPT-5.5
+- **Provider:** OpenAI
+
+---
+
+## Example Prompts Used
+
+### Student 1 — Timothy Criss Jr.
+
+- "Help me design and implement a session-based authentication system using Passport.js, Express, MongoDB, and React Hooks without using Mongoose."
+- "Explain how React Context, Passport sessions, Express middleware, and MongoDB work together to maintain authenticated users across requests."
+- "Based on my current CRUD operations, help me refine their functionality for trips using the native MongoDB driver while keeping the architecture consistent with my previous project."
+- "Help me build a budget summary and progress bar that automatically update as trips and expenses change."
+- "Explain how embedded MongoDB documents should be updated using `$push`, `$pull`, and `$set` for trip expense management."
+- "Help me troubleshoot Passport.js authentication, session persistence, MongoDB connectivity, and frontend/backend integration issues."
+- "Review my React component architecture and recommend improvements while remaining consistent with the project rubric and course requirements."
+- "Explain why my React components are not rerendering after asynchronous updates and help me implement the appropriate callback workflow."
+- "Help me debug Express routes, MongoDB repository methods, and React state synchronization."
+- "Review my README documentation and project organization to improve clarity, maintainability, and deployment instructions."
+
 
 **Example prompts used:**
+
 
 ---
 
