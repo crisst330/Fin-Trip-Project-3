@@ -14,7 +14,7 @@ Most trip planners are discovery-oriented — built to help you find a destinati
 
 ---
 
-## Screenshot (Thumbail)
+## Screenshot (Thumbnail)
 
 https://raw.githubusercontent.com/crisst330/FIN-TRIP-PROJECT-3/main/frontend/images/Project3Thumbnail.png
 
