@@ -13,6 +13,10 @@
 - [Screenshot](#screenshot)
 - [Slideshow Presentation](#slideshow-presentation)
 - [Demonstration Video](#demonstration-video)
+- [Live Application](#live-application)
+- [Live Deployment Notes](#live-deployment-notes)
+- [API Health Check](#api-health-check)
+- [Production Deployment](#production-deployment)
 - [Technologies](#technologies)
 - [Division of Work](#division-of-work)
 - [Project Structure](#project-structure)
@@ -74,14 +78,15 @@ a grader may register a new account to evaluate application functionality indepe
 
 ---
 
-### API Health Check
-## Purpose: Shows that the backend is deployed and responsive.
+## API Health Check
+
+Purpose: Shows that the backend is deployed and responsive.
 
 https://fin-trip-project-3-production.up.railway.app/api/health
 
 ---
 
-### Production Deployment
+## Production Deployment
 
 The application is deployed on Railway.
 
