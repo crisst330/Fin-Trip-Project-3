@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 
-import BudgetProgressBar from "./BudgetProgressBar";
+import BudgetProgressBar from "./BudgetProgressBar.jsx";
 
 export default function BudgetSummary({ trip }) {
   const spent = trip.items.reduce(
