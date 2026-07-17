@@ -1,12 +1,14 @@
 {
   "name": "fin-trip-project-3-backend",
   "version": "1.0.0",
-  "description": "Basic application that ....",
+  "description": "A full-stack budget-first trip planner built with React, Express, MongoDB, and Passport.",
   "main": "backend.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch backend.js"
+    "dev": "node --watch backend.js",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "node backend.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

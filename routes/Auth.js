@@ -60,7 +60,7 @@ router.post("/login", (req, res, next) => {
       console.error(error);
 
       return res.status(500).json({
-        error: "Unable to log in in at this time.",
+        error: "Unable to log in at this time.",
       });
     }
 
