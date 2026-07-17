@@ -1,20 +1,45 @@
 # FinTrip — Budget-First Trip Planner
 
-A budget-first trip planner. Instead of starting with a destination, FinTrip starts with the money: set a budget cap for a trip, add every planned expense as a cost-line item, and watch a live running total against the cap — with a color-coded progress bar, estimated-vs-booked cost tracking, category filtering, and a per-person split for group trips.
+### CS 5610 Web Development | Project 3
 
 **Author:** Timothy Criss Jr. & Priamos Koumas
-**Class:** CS 5610 — Web Development, Professor John Alexis Guerra Gomez, Northeastern University
-**Class Link:** _[add course/Canvas link here]_
+**Class:** CS 5610 — Web Development, Northeastern University
+
+---
+
+## Table of Contents
+
+- [Project Objective](#project-objective)
+- [Screenshot](#screenshot)
+- [Slideshow Presentation](#slideshow-presentation)
+- [Demonstration Video](#demonstration-video)
+- [Technologies](#technologies)
+- [Division of Work](#division-of-work)
+- [Project Structure](#project-structure)
+- [Instructions to Build](#instructions-to-build)
+- [Use of Generative AI](#use-of-generative-ai)
+- [Example Prompts Used](#example-prompts-used)
+- [Sources & References](#sources--references)
+- [License](#license)
 
 ---
 
 ## Project Objective
 
-Most trip planners are discovery-oriented — built to help you find a destination, not to answer "can we afford this trip?" FinTrip inverts that: the budget is the primary object, and every itinerary element (flight, hotel, museum ticket, dinner) is a cost line tracked against it. The goal is to give travelers — whether saving toward a group trip, budgeting for a one-off event, or managing recurring travel on a fixed income — a single tool where the budget drives every planning decision, not the itinerary.
+Most trip planners are discovery-oriented — built to help you find a destination, not to answer "can we afford this trip?" FinTrip inverts that: the budget is the primary object, and every itinerary element (flight, hotel, museum ticket, dinner) is a cost line tracked against it.
+
+The application consists of two primary features:
+
+- **Trip Management** — create, edit, and delete trips with a name, destination, dates, budget cap, and traveler count, viewed on an authenticated dashboard with a live budget summary and progress bar.
+- **Expense Tracking** — add, edit, and delete individual expense items inside a trip, categorized and marked estimated or booked, with category filtering and an automatic per-person cost split.
+
+The goal is to give travelers — whether saving toward a group trip, budgeting for a one-off event, or managing recurring travel on a fixed income — a single tool where the budget drives every planning decision, not the itinerary.
+
+This project was developed as part of CS 5610 Web Development at Northeastern University.
 
 ---
 
-## Screenshot (Thumbnail)
+## Screenshot
 
 ![FinTrip application thumbnail](frontend/images/Project3Thumbnail.png)
 
@@ -34,17 +59,28 @@ https://drive.google.com/file/d/12g3EjTVK3VvAFfSsdvDgAd3UnKzRYQgj/view?usp=shari
 
 ## Technologies
 
-- **Node.js** + **Express** — backend server and routing
-- **MongoDB** (native Node.js driver — no Mongoose) — database
-- **React** with **Hooks** — client-side rendered frontend
-- **Vite** — frontend build tool and dev server
-- **React Router** (v7) — client-side routing
-- **React-Bootstrap** — UI components
-- **Passport** (passport-local) — authentication
-- **express-session** — session management
-- **HTML5** — Vite's single entry point (`index.html`)
+**Frontend**
 
-No axios, no Mongoose, no CORS package — the Vite dev proxy handles cross-origin requests to the Express backend directly.
+- React with Hooks
+- Vite (build tool and dev server)
+- React Router v7 (client-side routing)
+- React-Bootstrap (UI components)
+- HTML5 / CSS3
+
+**Backend**
+
+- Node.js + Express
+- Passport (passport-local) + express-session (authentication & sessions)
+
+**Database**
+
+- MongoDB (native Node.js driver — no Mongoose)
+
+**Development Tools**
+
+- Git, GitHub, Visual Studio Code, ESLint, Docker (local MongoDB)
+
+No axios, no Mongoose, no CORS package — the Vite dev proxy handles requests to the Express backend directly.
 
 ---
 
@@ -54,19 +90,29 @@ No axios, no Mongoose, no CORS package — the Vite dev proxy handles cross-orig
 
 - Authentication system: user registration, login, logout, Passport Local Strategy, session management, and protected routes
 - User management: MongoDB user repository (`UsersDB.js`), password hashing with bcrypt, Passport serialization/deserialization, and authenticated `UserContext`
-- Dashboard workflow: authenticated user experience, dashboard integration, navigation updates, and session persistence across the application
+- Dashboard workflow: authenticated user experience, dashboard integration, navigation updates, and session persistence
 - Trip management: edit and delete trip functionality (`EditTripForm`), trip ownership validation, and authenticated trip operations
-- Budget visualization: budget summary calculations and dynamic color-coded progress bar (green → yellow → red) that updates as trip expenses change
-- Frontend/backend integration: React state management, authenticated API communication, CRUD testing, debugging, and overall application integration
+- Budget visualization: budget summary calculations and dynamic color-coded progress bar (green → yellow → red) that updates as expenses change
+- Frontend/backend integration: authenticated API communication, CRUD testing, debugging, and overall application integration
+
+**Endpoints (Express routes):**
+
+- `POST /api/auth/register`, `POST /api/auth/login`, `GET /api/auth/logout`, `GET /api/auth/user`
 
 ### Priamos Koumas
 
 - Trip creation interface (`CreateTripForm`) and trip display components (`TripCard`)
 - Expense items: add, edit, and delete cost-line items (category, title, cost, link, notes, estimated-vs-booked status) inside a trip
 - Category filter: filter expense list by category/title
-- Trip-level backend routes (full CRUD on the trips collection): `GET/POST/PUT/DELETE /api/trips`, `GET /api/trips/:id`
+- Trip-level backend routes (full CRUD on the trips collection)
 - Per-person split: computed per-traveler share, displayed in the trip detail
 - Synthetic data generation (1,000+ seeded trip records via Mockaroo, plus hand-crafted demo trips)
+- Application-wide CSS design system and landing page design
+
+**Endpoints (Express routes):**
+
+- `GET/POST /api/trips`, `GET/PUT/DELETE /api/trips/:id`
+- `POST/PUT/DELETE /api/trips/:id/items`
 
 ---
 
@@ -103,46 +149,31 @@ Fin-Trip-Project-3/
 │   ├── package-lock.json
 │   ├── vite.config.js
 │   ├── eslint.config.js
-│   │
 │   ├── images/
-│   │
 │   ├── public/
-│   │
 │   ├── dist/
-│   │
 │   └── src/
 │       ├── main.jsx
 │       ├── index.css
-│       │
 │       ├── context/
 │       │   └── UserContext.jsx
-│       │
 │       ├── components/
-│       │   ├── AddExpenseForm.jsx
-│       │   ├── AddExpenseForm.css
+│       │   ├── AddExpenseForm.jsx / .css
 │       │   ├── BudgetProgressBar.jsx
 │       │   ├── BudgetSummary.jsx
 │       │   ├── CreateTripForm.jsx
 │       │   ├── EditTripForm.jsx
-│       │   ├── ExpenseItem.jsx
-│       │   ├── ExpenseItem.css
-│       │   ├── ExpenseList.jsx
-│       │   ├── ExpenseList.css
-│       │   ├── NavigationBar.jsx
-│       │   ├── NavigationBar.css
+│       │   ├── ExpenseItem.jsx / .css
+│       │   ├── ExpenseList.jsx / .css
+│       │   ├── NavigationBar.jsx / .css
 │       │   └── TripCard.jsx
-│       │
 │       ├── pages/
-│       │   ├── AboutPage.jsx
-│       │   ├── AboutPage.css
+│       │   ├── AboutPage.jsx / .css
 │       │   ├── BaseTemplate.jsx
-│       │   ├── DashboardPage.jsx
-│       │   ├── DashboardPage.css
+│       │   ├── DashboardPage.jsx / .css
 │       │   ├── LoginPage.jsx
 │       │   ├── RegisterPage.jsx
-│       │   ├── TripDetailPage.jsx
-│       │   └── TripDetailPage.css
-│       │
+│       │   └── TripDetailPage.jsx / .css
 │       └── data/
 │           └── TripInfo.json
 ```
@@ -150,6 +181,11 @@ Fin-Trip-Project-3/
 ---
 
 ## Instructions to Build
+
+**Prerequisites**
+
+- Node.js installed
+- A MongoDB connection (hosted, or run locally via Docker — see below)
 
 **1. Clone the repo**
 
@@ -180,7 +216,7 @@ Create a `.env` file in the project root:
 MONGODB_URI=your-mongodb-connection-string
 ```
 
-If testing locally without a hosted MongoDB instance, you can run MongoDB via Docker instead:
+If testing locally without a hosted MongoDB instance, run MongoDB via Docker instead:
 
 ```bash
 docker run -d -p 27017:27017 --name fintrip-mongo mongo
@@ -204,6 +240,14 @@ npm run dev
 ```
 
 App runs on `http://localhost:5173`.
+
+**How to use the app**
+
+1. Register an account or log in.
+2. From the dashboard, create a new trip with a destination, dates, budget cap, and traveler count.
+3. Open a trip to add expense items by category, cost, and estimated/booked status.
+4. Use the filter box to search expenses by title or category.
+5. View the live budget progress bar and per-person cost split as expenses are added, edited, or removed.
 
 ---
 
@@ -251,23 +295,6 @@ Generated suggestions were reviewed, adapted, and manually implemented into the 
 - **Model Used:** GPT-5.5
 - **Provider:** OpenAI
 
----
-
-## Example Prompts Used
-
-### Student 1 — Timothy Criss Jr.
-
-- "Help me design and implement a session-based authentication system using Passport.js, Express, MongoDB, and React Hooks without using Mongoose."
-- "Explain how React Context, Passport sessions, Express middleware, and MongoDB work together to maintain authenticated users across requests."
-- "Based on my current CRUD operations, help me refine their functionality for trips using the native MongoDB driver while keeping the architecture consistent with my previous project."
-- "Help me build a budget summary and progress bar that automatically update as trips and expenses change."
-- "Explain how embedded MongoDB documents should be updated using `$push`, `$pull`, and `$set` for trip expense management."
-- "Help me troubleshoot Passport.js authentication, session persistence, MongoDB connectivity, and frontend/backend integration issues."
-- "Review my React component architecture and recommend improvements while remaining consistent with the project rubric and course requirements."
-- "Explain why my React components are not rerendering after asynchronous updates and help me implement the appropriate callback workflow."
-- "Help me debug Express routes, MongoDB repository methods, and React state synchronization."
-- "Review my README documentation and project organization to improve clarity, maintainability, and deployment instructions."
-
 ### Student 2 — Priamos Koumas (Expense Management, Trip CRUD Backend & Application Design)
 
 #### GenAI Usage
@@ -307,6 +334,19 @@ Generated suggestions from both tools were reviewed, adapted, and manually imple
 ---
 
 ## Example Prompts Used
+
+### Student 1 — Timothy Criss Jr.
+
+- "Help me design and implement a session-based authentication system using Passport.js, Express, MongoDB, and React Hooks without using Mongoose."
+- "Explain how React Context, Passport sessions, Express middleware, and MongoDB work together to maintain authenticated users across requests."
+- "Based on my current CRUD operations, help me refine their functionality for trips using the native MongoDB driver while keeping the architecture consistent with my previous project."
+- "Help me build a budget summary and progress bar that automatically update as trips and expenses change."
+- "Explain how embedded MongoDB documents should be updated using `$push`, `$pull`, and `$set` for trip expense management."
+- "Help me troubleshoot Passport.js authentication, session persistence, MongoDB connectivity, and frontend/backend integration issues."
+- "Review my React component architecture and recommend improvements while remaining consistent with the project rubric and course requirements."
+- "Explain why my React components are not rerendering after asynchronous updates and help me implement the appropriate callback workflow."
+- "Help me debug Express routes, MongoDB repository methods, and React state synchronization."
+- "Review my README documentation and project organization to improve clarity, maintainability, and deployment instructions."
 
 ### Student 2 — Priamos Koumas
 
