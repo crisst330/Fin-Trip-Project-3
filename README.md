@@ -63,6 +63,32 @@ https://fin-trip-project-3-production.up.railway.app
 
 ---
 
+## Live Deployment Notes
+
+- Hosted on Railway
+- Uses Railway MongoDB
+- Database populated with **1,000+ synthetic Mockaroo records**
+- A dedicated demo account was used to associate those records with a valid application user during seeding. As a result,
+a grader may register a new account to evaluate application functionality independently.
+- Authentication implemented using Passport.js sessions
+
+---
+
+### API Health Check
+## Purpose: Shows that the backend is deployed and responsive.
+
+https://fin-trip-project-3-production.up.railway.app/api/health
+
+---
+
+### Production Deployment
+
+The application is deployed on Railway.
+
+No local setup is required to evaluate the deployed application.
+
+---
+
 ## Technologies
 
 **Frontend**
@@ -87,6 +113,10 @@ https://fin-trip-project-3-production.up.railway.app
 - Git, GitHub, Visual Studio Code, ESLint, Docker (local MongoDB)
 
 No axios, no Mongoose, no CORS package — the Vite dev proxy handles requests to the Express backend directly.
+
+**Deployment**
+
+- Railway (Node.js hosting + MongoDB)
 
 ---
 
@@ -158,7 +188,7 @@ Fin-Trip-Project-3/
 │   ├── eslint.config.js
 │   ├── images/
 │   ├── public/
-│   ├── dist/
+│   ├── dist/ (generated after build)
 │   └── src/
 │       ├── main.jsx
 │       ├── index.css
@@ -281,7 +311,7 @@ AI assistance for the authentication system, trip management features, and budge
 - helping troubleshoot React rendering behavior, asynchronous state updates, and component refresh workflows
 - explaining MongoDB update operators (`$set`, `$push`, `$pull`) and embedded document modification patterns
 - refining comments, documentation wording, and project organization for readability and maintainability
-- configuration assistance for Railway deployment & seedscript
+- assisting with Railway deployment, production configuration, MongoDB database seeding, and deployment troubleshooting
 
 Additional development and deployment assistance included:
 
@@ -386,6 +416,7 @@ Generated suggestions from both tools were reviewed, adapted, and manually imple
 - Docker documentation, running MongoDB in a container — https://docs.docker.com/
 - Class lecture materials, Professor John Alexis Guerra Gomez — https://johnguerra.co/lectures/webDevelopment_fall2025/
 - This team's Project 1 (personal homepage) and Project 2 (Oncology Trial Information Hub) repositories, reused for CSS structure, Mongo CRUD patterns, and hero-section layout conventions
+- Railway Documentation — https://docs.railway.com/
 
 ---
 
