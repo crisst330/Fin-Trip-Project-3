@@ -73,7 +73,7 @@ https://fin-trip-project-3-production.up.railway.app
 - Uses Railway MongoDB
 - Database populated with **1,000+ synthetic Mockaroo records**
 - A dedicated demo account was used to associate those records with a valid application user during seeding. As a result,
-a grader may register a new account to evaluate application functionality independently.
+  a grader may register a new account to evaluate application functionality independently.
 - Authentication implemented using Passport.js sessions
 
 ---
