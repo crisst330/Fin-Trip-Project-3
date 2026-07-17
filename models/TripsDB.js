@@ -150,12 +150,18 @@ function TripsDB({
 
   me.addItem = async (tripId, item) => {
     const { client, trips } = await connect();
+
     try {
-      const result = await trips.updateOne(
-        { _id: new ObjectId(tripId) },
-        { $push: { items: item } },
+      return await trips.updateOne(
+        { 
+          _id: new ObjectId(tripId),
+          ownerId: new ObjectId(ownerId),
+        },
+        { 
+          $push: { 
+            items: item } 
+        },
       );
-      return result;
     } finally {
       await client.close();
     }
@@ -163,25 +169,29 @@ function TripsDB({
 
   me.updateItem = async (
     tripId,
+    ownerId,
     itemId,
     { category, title, cost, status, link, notes: itemNotes },
   ) => {
     const { client, trips } = await connect();
     try {
-      const result = await trips.updateOne(
-        { _id: new ObjectId(tripId), "items.itemId": itemId },
+      return await trips.updateOne(
+        { 
+          _id: new ObjectId(tripId),
+          ownerId: new ObjectId(ownerId), 
+          "items.itemId": itemId 
+        },
         {
           $set: {
             "items.$.category": category,
             "items.$.title": title,
-            "items.$.cost": cost,
+            "items.$.cost": Number(cost),
             "items.$.status": status,
             "items.$.link": link,
             "items.$.notes": itemNotes,
           },
         },
       );
-      return result;
     } finally {
       await client.close();
     }
@@ -189,12 +199,21 @@ function TripsDB({
 
   me.deleteItem = async (tripId, itemId) => {
     const { client, trips } = await connect();
+
     try {
-      const result = await trips.updateOne(
-        { _id: new ObjectId(tripId) },
-        { $pull: { items: { itemId } } },
+      return await trips.updateOne(
+        { 
+          _id: new ObjectId(tripId),
+          ownerId: new ObjectId(ownerId), 
+        },
+        { 
+          $pull: { 
+            items: { 
+              itemId,
+            }, 
+          }, 
+        },
       );
-      return result;
     } finally {
       await client.close();
     }
