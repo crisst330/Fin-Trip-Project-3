@@ -80,7 +80,7 @@ export default function DashboardPage() {
       <h1>My Trips</h1>
 
       <p>
-        Welcome, {user.name}. Create a trip or manage one of your saved trips.
+        Welcome, <strong>{user.name}</strong>. Create a trip or manage one of your saved trips.
       </p>
 
       {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
