@@ -94,6 +94,7 @@ No axios, no Mongoose, no CORS package — the Vite dev proxy handles requests t
 - Trip management: edit and delete trip functionality (`EditTripForm`), trip ownership validation, and authenticated trip operations
 - Budget visualization: budget summary calculations and dynamic color-coded progress bar (green → yellow → red) that updates as expenses change
 - Frontend/backend integration: authenticated API communication, CRUD testing, debugging, and overall application integration
+- Railway deployment configuration and completion for the application
 
 **Endpoints (Express routes):**
 
@@ -274,6 +275,7 @@ AI assistance for the authentication system, trip management features, and budge
 - helping troubleshoot React rendering behavior, asynchronous state updates, and component refresh workflows
 - explaining MongoDB update operators (`$set`, `$push`, `$pull`) and embedded document modification patterns
 - refining comments, documentation wording, and project organization for readability and maintainability
+- configuration assistance for Railway deployment
 
 Additional development and deployment assistance included:
 
