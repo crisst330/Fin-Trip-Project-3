@@ -91,7 +91,7 @@ export default function TripDetailPage() {
 
         <Col md={4} xs={12}>
           {user ? (
-            <AddExpenseForm tripId={tripId} reloadTrip={reloadTrip} />
+            <AddExpenseForm tripId={tripId} reloadExpenses={reloadTrip} />
           ) : (
             <p>
               Please <Link to="/login">log in</Link> to add a new expense.
