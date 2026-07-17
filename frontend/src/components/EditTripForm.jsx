@@ -47,8 +47,6 @@ export default function EditTripForm({ trip, reloadTrips, closeEditForm }) {
         body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
         const data = await response.json();
 
@@ -60,7 +58,7 @@ export default function EditTripForm({ trip, reloadTrips, closeEditForm }) {
       closeEditForm();
     } catch (error) {
       console.error("Update trip error:", error);
-      
+
       setErrorMessage("This trip may have been updated, but the page could not refresh.");
     } finally {
       setIsSubmitting(false);
