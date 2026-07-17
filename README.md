@@ -275,7 +275,7 @@ AI assistance for the authentication system, trip management features, and budge
 - helping troubleshoot React rendering behavior, asynchronous state updates, and component refresh workflows
 - explaining MongoDB update operators (`$set`, `$push`, `$pull`) and embedded document modification patterns
 - refining comments, documentation wording, and project organization for readability and maintainability
-- configuration assistance for Railway deployment
+- configuration assistance for Railway deployment & seedscript
 
 Additional development and deployment assistance included:
 
