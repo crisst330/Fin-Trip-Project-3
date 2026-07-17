@@ -43,8 +43,6 @@ export default function NavigationBar() {
 
             {user ? (
               <>
-                <Navbar.Text className="me-3">Welcome, {user.name}</Navbar.Text>
-
                 <Nav.Link as={Link} to="/">
                   My Trips
                 </Nav.Link>
