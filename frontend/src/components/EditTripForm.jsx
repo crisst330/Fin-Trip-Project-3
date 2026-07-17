@@ -47,6 +47,8 @@ export default function EditTripForm({ trip, reloadTrips, closeEditForm }) {
         body: JSON.stringify(payload),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
         const data = await response.json();
 
