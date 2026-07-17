@@ -265,16 +265,76 @@ Generated suggestions were reviewed, adapted, and manually implemented into the 
 - "Review my README documentation and project organization to improve clarity, maintainability, and deployment instructions."
 
 
+### Student 2 — Priamos Koumas (Expense Management, Trip CRUD Backend & Application Design)
+
+#### GenAI Usage
+
+AI assistance for the expense management system, trip-level backend routes, data seeding, and application design/styling was used for:
+
+- reviewing the assignment rubric and translating it into a working development checklist
+- scaffolding the Vite + React + Express project structure and configuring ESLint for both the frontend (React/JSX) and backend (Node)
+- explaining MongoDB native driver CRUD operations and update operators (`$push`, positional `$set`, `$pull`) for managing embedded expense items nested inside trip documents, without Mongoose
+- reviewing implementation of expense item creation, editing, deletion, category filtering, and estimated-vs-booked status tracking, along with the corresponding trip-level backend routes
+- diagnosing frontend bugs, including a controlled-input issue preventing a numeric field from clearing while typing, a route-parameter naming mismatch between the router and a page component, and a prop-name mismatch between a form and its parent that was silently breaking expense creation
+- diagnosing backend/integration bugs, including a router not mounted in the Express app, a missing authentication middleware guard, and a stale server process silently running outdated code after a file edit
+- reviewing reusable React component design, including props, callbacks, and `PropTypes` validation
+- setting up local environment tooling, including `dotenv`, a root-level `.gitignore`, removing an accidentally-tracked `node_modules` directory, and a local MongoDB instance via Docker for independent testing
+- generating and troubleshooting a Mockaroo schema for synthetic trip data (fixing a budget-realism issue, a date-ordering bug, and a platform-specific Mockaroo limitation), and writing a one-time script to load the data into MongoDB
+- designing and implementing a shared CSS design system — `:root` color variables and typography — distributed consistently across every styled component and page (expense cards, forms, the trip detail view, and the landing page) so the site reads as one cohesive product
+- building the landing page's full-bleed hero section and layout, and fixing layout issues caused by the shared Bootstrap `Container` wrapper constraining full-width elements
+- refining comments, documentation wording, and project organization for readability and maintainability
+
+GitHub Copilot was used separately, in-editor, for:
+
+- generating specific backend functions and Express routes when prompted directly in the file
+- filling out written page copy throughout the site wherever text content was needed, when prompted
+
+Generated suggestions from both tools were reviewed, adapted, and manually implemented into the final project.
+
+#### GenAI Tool Information
+
+- **Tool Used:** Claude
+- **Model Used:** Claude Sonnet 5
+- **Provider:** Anthropic
+
+- **Tool Used:** GitHub Copilot
+- **Model Used:** GPT-4o (Copilot default)
+- **Provider:** GitHub / OpenAI
+
+---
+
+## Example Prompts Used
+
+### Student 2 — Priamos Koumas
+
+* "How do I use $push, $set with the positional operator, and $pull to manage an array embedded inside a MongoDB document?"
+* "What's the right way to set up an ESLint flat config for a React project versus a plain Node backend?"
+* "Walk me through a try/catch/finally pattern for MongoDB connection handling with the native driver."
+* "Why won't this controlled number input let the user clear the field while typing?"
+* "My useParams value keeps coming back undefined — what am I missing?"
+* "This Express route returns 404 even though the file and function both look correct. What could cause that?"
+* "Is there a way to tell if a running Node process is using an outdated version of a file I just edited?"
+* "What's the quickest way to get a local MongoDB instance running with Docker for development?"
+* "How should I structure a .gitignore and dotenv setup so credentials never get committed?"
+* "How do I build a Mockaroo schema with a nested array field, and fix values inside it that don't logically match?"
+* "How do I define PropTypes for a component that receives an array of objects as a prop?"
+* "What's a distinctive way to style a set of cards with CSS so the site doesn't look like default Bootstrap?"
+
 ---
 
 ## Sources & References
 
+- Professor John Alexis Guerra Gomez's `nodeExpressReactVite_ApartmentFinder` class example — used as the foundational reference throughout the project for structure, configuration conventions, and component patterns, adapted into FinTrip's own expense and trip features
 - MongoDB array update operators (`$push`, `$pull`, positional `$`) — https://www.mongodb.com/docs/manual/reference/operator/update-array/
 - MongoDB Node.js Driver CRUD documentation — https://www.mongodb.com/docs/drivers/node/current/crud/
 - React Router v7 documentation — https://reactrouter.com/
 - React-Bootstrap component documentation — https://react-bootstrap.github.io/
 - Mockaroo documentation (Formula fields, Repeating Elements) — https://mockaroo.com/docs
+- ESLint documentation, disabling rules — https://eslint.org/docs/latest/use/configure/rules#disabling-rules
+- Vite configuration documentation — https://vite.dev/config/
+- Docker documentation, running MongoDB in a container — https://docs.docker.com/
 - Class lecture materials, Professor John Alexis Guerra Gomez — https://johnguerra.co/lectures/webDevelopment_fall2025/
+- This team's Project 1 (personal homepage) and Project 2 (Oncology Trial Information Hub) repositories, reused for CSS structure, Mongo CRUD patterns, and hero-section layout conventions
 
 ---
 
