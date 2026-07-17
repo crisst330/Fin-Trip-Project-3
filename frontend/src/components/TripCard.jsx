@@ -71,11 +71,7 @@ export default function TripCard({ trip, reloadTrips }) {
           {isEditing ? "Close Edit" : "Edit"}
         </Button>
 
-        <Button
-          type="button"
-          variant="danger"
-          onClick={handleDelete}
-        >
+        <Button type="button" variant="danger" onClick={handleDelete}>
           Delete
         </Button>
         {isEditing && (

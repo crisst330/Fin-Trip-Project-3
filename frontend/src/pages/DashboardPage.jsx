@@ -53,11 +53,7 @@ export default function DashboardPage() {
   if (!user) {
     return (
       <section className="hero-section">
-        <img
-          src={heroImg}
-          alt="World map with money"
-          className="hero-bg-img"
-        />
+        <img src={heroImg} alt="World map with money" className="hero-bg-img" />
 
         <h1>Welcome to FinTrip</h1>
 
@@ -87,9 +83,7 @@ export default function DashboardPage() {
         Welcome, {user.name}. Create a trip or manage one of your saved trips.
       </p>
 
-      {errorMessage && (
-        <Alert variant="danger">{errorMessage}</Alert>
-      )}
+      {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
 
       <CreateTripForm reloadTrips={reloadTrips} />
 
@@ -97,15 +91,13 @@ export default function DashboardPage() {
 
       <h2>Saved Trips</h2>
 
-      {isLoading ? (<p>Loading trips...</p>) : trips.length === 0 ? (
+      {isLoading ? (
+        <p>Loading trips...</p>
+      ) : trips.length === 0 ? (
         <p>You have not created any trips yet.</p>
       ) : (
         trips.map((trip) => (
-          <TripCard
-            key={trip._id}
-            trip={trip}
-            reloadTrips={reloadTrips}
-          />
+          <TripCard key={trip._id} trip={trip} reloadTrips={reloadTrips} />
         ))
       )}
     </section>
