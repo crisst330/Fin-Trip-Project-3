@@ -1,4 +1,4 @@
-# FinTrip
+# FinTrip — Budget-First Trip Planner
 
 A budget-first trip planner. Instead of starting with a destination, FinTrip starts with the money: set a budget cap for a trip, add every planned expense as a cost-line item, and watch a live running total against the cap — with a color-coded progress bar, estimated-vs-booked cost tracking, category filtering, and a per-person split for group trips.
 
@@ -71,43 +71,76 @@ No axios, no Mongoose, no CORS package — the Vite dev proxy handles cross-orig
 ```
 Fin-Trip-Project-3/
 ├── backend.js
+├── package.json
+├── package-lock.json
+├── eslint.config.js
+├── README.md
+├── LICENSE
+├── .gitignore
+│
 ├── config/
 │   └── passport.js
+│
+├── middleware/
+│   └── auth.js
+│
 ├── models/
 │   ├── TripsDB.js
-│   └── users.js
+│   └── UsersDB.js
+│
 ├── routes/
 │   ├── Auth.js
-│   ├── Expenses.js
-│   └── Trips.js
+│   ├── Trips.js
+│   └── Expenses.js
+│
 ├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── AddExpenseForm.jsx
-│   │   │   ├── BudgetProgressBar.jsx
-│   │   │   ├── BudgetSummary.jsx
-│   │   │   ├── ExpenseItem.jsx
-│   │   │   ├── ExpenseList.jsx
-│   │   │   ├── NavigationBar.jsx
-│   │   │   └── TripCard.jsx
-│   │   ├── context/
-│   │   │   └── UserContext.jsx
-│   │   ├── pages/
-│   │   │   ├── AboutPage.jsx
-│   │   │   ├── BaseTemplate.jsx
-│   │   │   ├── DashboardPage.jsx
-│   │   │   ├── LoginPage.jsx
-│   │   │   ├── RegisterPage.jsx
-│   │   │   └── TripDetailPage.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
 │   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
 │   ├── vite.config.js
 │   ├── eslint.config.js
-│   └── package.json
-├── .env.example
-├── .gitignore
-└── package.json
+│   │
+│   ├── images/
+│   │
+│   ├── public/
+│   │
+│   ├── dist/
+│   │
+│   └── src/
+│       ├── main.jsx
+│       ├── index.css
+│       │
+│       ├── context/
+│       │   └── UserContext.jsx
+│       │
+│       ├── components/
+│       │   ├── AddExpenseForm.jsx
+│       │   ├── AddExpenseForm.css
+│       │   ├── BudgetProgressBar.jsx
+│       │   ├── BudgetSummary.jsx
+│       │   ├── CreateTripForm.jsx
+│       │   ├── EditTripForm.jsx
+│       │   ├── ExpenseItem.jsx
+│       │   ├── ExpenseItem.css
+│       │   ├── ExpenseList.jsx
+│       │   ├── ExpenseList.css
+│       │   ├── NavigationBar.jsx
+│       │   ├── NavigationBar.css
+│       │   └── TripCard.jsx
+│       │
+│       ├── pages/
+│       │   ├── AboutPage.jsx
+│       │   ├── AboutPage.css
+│       │   ├── BaseTemplate.jsx
+│       │   ├── DashboardPage.jsx
+│       │   ├── DashboardPage.css
+│       │   ├── LoginPage.jsx
+│       │   ├── RegisterPage.jsx
+│       │   ├── TripDetailPage.jsx
+│       │   └── TripDetailPage.css
+│       │
+│       └── data/
+│           └── TripInfo.json
 ```
 
 ---
@@ -230,9 +263,6 @@ Generated suggestions were reviewed, adapted, and manually implemented into the 
 - "Explain why my React components are not rerendering after asynchronous updates and help me implement the appropriate callback workflow."
 - "Help me debug Express routes, MongoDB repository methods, and React state synchronization."
 - "Review my README documentation and project organization to improve clarity, maintainability, and deployment instructions."
-
-
-**Example prompts used:**
 
 
 ---
