@@ -57,6 +57,12 @@ https://drive.google.com/file/d/12g3EjTVK3VvAFfSsdvDgAd3UnKzRYQgj/view?usp=shari
 
 ---
 
+## Live Application
+
+https://fin-trip-project-3-production.up.railway.app
+
+---
+
 ## Technologies
 
 **Frontend**
