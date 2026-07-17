@@ -11,10 +11,7 @@ const DEFAULT_ITEM = {
   status: "estimated",
 };
 
-export default function CreateExpenseForm({
-  tripId,
-  reloadExpenses,
-}) {
+export default function CreateExpenseForm({ tripId, reloadExpenses }) {
   const [item, setItem] = useState(DEFAULT_ITEM);
 
   const onSubmit = async (evt) => {

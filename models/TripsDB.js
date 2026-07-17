@@ -153,13 +153,14 @@ function TripsDB({
 
     try {
       return await trips.updateOne(
-        { 
+        {
           _id: new ObjectId(tripId),
           ownerId: new ObjectId(ownerId),
         },
-        { 
-          $push: { 
-            items: item } 
+        {
+          $push: {
+            items: item,
+          },
         },
       );
     } finally {
@@ -176,10 +177,10 @@ function TripsDB({
     const { client, trips } = await connect();
     try {
       return await trips.updateOne(
-        { 
+        {
           _id: new ObjectId(tripId),
-          ownerId: new ObjectId(ownerId), 
-          "items.itemId": itemId 
+          ownerId: new ObjectId(ownerId),
+          "items.itemId": itemId,
         },
         {
           $set: {
@@ -202,16 +203,16 @@ function TripsDB({
 
     try {
       return await trips.updateOne(
-        { 
+        {
           _id: new ObjectId(tripId),
-          ownerId: new ObjectId(ownerId), 
+          ownerId: new ObjectId(ownerId),
         },
-        { 
-          $pull: { 
-            items: { 
+        {
+          $pull: {
+            items: {
               itemId,
-            }, 
-          }, 
+            },
+          },
         },
       );
     } finally {

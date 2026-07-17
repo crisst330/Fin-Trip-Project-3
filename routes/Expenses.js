@@ -31,11 +31,7 @@ router.post("/:id/items", async (req, res) => {
       notes: notes || "",
     };
 
-    const result = await tripsDB.addItem(
-      id,
-      req.user._id,
-      newItem,
-    );
+    const result = await tripsDB.addItem(id, req.user._id, newItem);
 
     if (result.matchedCount === 0) {
       return res.status(404).json({
@@ -71,19 +67,14 @@ router.put("/:id/items/:itemId", async (req, res) => {
   }
 
   try {
-    const result = await tripsDB.updateItem(
-      id,
-      req.user._id,
-      itemId,
-      {
-        category,
-        title,
-        cost,
-        status,
-        link,
-        notes,
-      },
-    );
+    const result = await tripsDB.updateItem(id, req.user._id, itemId, {
+      category,
+      title,
+      cost,
+      status,
+      link,
+      notes,
+    });
 
     if (result.matchedCount === 0) {
       return res.status(404).json({
@@ -113,11 +104,7 @@ router.delete("/:id/items/:itemId", async (req, res) => {
   const { id, itemId } = req.params;
 
   try {
-    const result = await tripsDB.deleteItem(
-      id,
-      req.user._id,
-      itemId,
-    );
+    const result = await tripsDB.deleteItem(id, req.user._id, itemId);
 
     if (result.matchedCount === 0) {
       return res.status(404).json({

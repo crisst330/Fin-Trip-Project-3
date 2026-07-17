@@ -59,7 +59,9 @@ export default function EditTripForm({ trip, reloadTrips, closeEditForm }) {
     } catch (error) {
       console.error("Update trip error:", error);
 
-      setErrorMessage("This trip may have been updated, but the page could not refresh.");
+      setErrorMessage(
+        "This trip may have been updated, but the page could not refresh.",
+      );
     } finally {
       setIsSubmitting(false);
     }

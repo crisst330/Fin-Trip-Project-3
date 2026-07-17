@@ -22,7 +22,7 @@ https://raw.githubusercontent.com/crisst330/FIN-TRIP-PROJECT-3/main/frontend/ima
 
 ## Slideshow Presentation
 
-https://docs.google.com/presentation/d/1PRmUyS2YgYATipQZAFH7PVRAGdb20MQO/edit?usp=sharing&ouid=109450555598504419581&rtpof=true&sd=true 
+https://docs.google.com/presentation/d/1PRmUyS2YgYATipQZAFH7PVRAGdb20MQO/edit?usp=sharing&ouid=109450555598504419581&rtpof=true&sd=true
 
 ---
 
@@ -264,7 +264,6 @@ Generated suggestions were reviewed, adapted, and manually implemented into the 
 - "Help me debug Express routes, MongoDB repository methods, and React state synchronization."
 - "Review my README documentation and project organization to improve clarity, maintainability, and deployment instructions."
 
-
 ### Student 2 — Priamos Koumas (Expense Management, Trip CRUD Backend & Application Design)
 
 #### GenAI Usage
@@ -307,18 +306,18 @@ Generated suggestions from both tools were reviewed, adapted, and manually imple
 
 ### Student 2 — Priamos Koumas
 
-* "How do I use $push, $set with the positional operator, and $pull to manage an array embedded inside a MongoDB document?"
-* "What's the right way to set up an ESLint flat config for a React project versus a plain Node backend?"
-* "Walk me through a try/catch/finally pattern for MongoDB connection handling with the native driver."
-* "Why won't this controlled number input let the user clear the field while typing?"
-* "My useParams value keeps coming back undefined — what am I missing?"
-* "This Express route returns 404 even though the file and function both look correct. What could cause that?"
-* "Is there a way to tell if a running Node process is using an outdated version of a file I just edited?"
-* "What's the quickest way to get a local MongoDB instance running with Docker for development?"
-* "How should I structure a .gitignore and dotenv setup so credentials never get committed?"
-* "How do I build a Mockaroo schema with a nested array field, and fix values inside it that don't logically match?"
-* "How do I define PropTypes for a component that receives an array of objects as a prop?"
-* "What's a distinctive way to style a set of cards with CSS so the site doesn't look like default Bootstrap?"
+- "How do I use $push, $set with the positional operator, and $pull to manage an array embedded inside a MongoDB document?"
+- "What's the right way to set up an ESLint flat config for a React project versus a plain Node backend?"
+- "Walk me through a try/catch/finally pattern for MongoDB connection handling with the native driver."
+- "Why won't this controlled number input let the user clear the field while typing?"
+- "My useParams value keeps coming back undefined — what am I missing?"
+- "This Express route returns 404 even though the file and function both look correct. What could cause that?"
+- "Is there a way to tell if a running Node process is using an outdated version of a file I just edited?"
+- "What's the quickest way to get a local MongoDB instance running with Docker for development?"
+- "How should I structure a .gitignore and dotenv setup so credentials never get committed?"
+- "How do I build a Mockaroo schema with a nested array field, and fix values inside it that don't logically match?"
+- "How do I define PropTypes for a component that receives an array of objects as a prop?"
+- "What's a distinctive way to style a set of cards with CSS so the site doesn't look like default Bootstrap?"
 
 ---
 
