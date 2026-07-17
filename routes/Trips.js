@@ -54,6 +54,9 @@ router.put("/:id", async (req, res) => {
     req.body,
   );
 
+  console.log("Travelers received by route:", req.body.travelers);
+  console.log("Traveler value type:", typeof req.body.travelers);
+
   try {
     const updatedTrip = await tripsDB.updateTrip(
       req.params.id,
@@ -66,6 +69,8 @@ router.put("/:id", async (req, res) => {
         error: "Trip not found.",
       });
     }
+
+    console.log("Updated trip returned:", updatedTrip);
 
     return res.status(200).json(updatedTrip);
   } catch (error) {
