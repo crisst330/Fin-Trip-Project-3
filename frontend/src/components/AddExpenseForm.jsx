@@ -10,36 +10,61 @@ const DEFAULT_ITEM = {
   cost: "",
   status: "estimated",
 };
-export default function CreateExpenseForm({ tripId, reloadTrip }) {
+
+export default function CreateExpenseForm({
+  tripId,
+  reloadExpenses,
+}) {
   const [item, setItem] = useState(DEFAULT_ITEM);
+
   const onSubmit = async (evt) => {
     evt.preventDefault();
-    const payload = { ...item, cost: parseFloat(item.cost) || 0 };
+
+    const payload = {
+      ...item,
+      cost: parseFloat(item.cost) || 0,
+    };
+
     console.log("🏓 onSubmit", payload);
 
-    const res = await fetch(`/api/trips/${tripId}/items`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-    if (!res.ok) {
-      console.error("Failed to create expense:", res.statusText);
-      return;
+    try {
+      const res = await fetch(`/api/trips/${tripId}/items`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        console.error("Failed to create expense:", res.statusText);
+        return;
+      }
+
+      const data = await res.json();
+      console.log("Expense created successfully:", data);
+
+      setItem(DEFAULT_ITEM);
+
+      await reloadExpenses();
+    } catch (error) {
+      console.error("Unable to create expense:", error);
     }
-    const data = await res.json();
-    console.log("Expense created successfully:", data);
-    setItem(DEFAULT_ITEM);
-    reloadTrip();
   };
+
   return (
     <Form onSubmit={onSubmit} className="create-expense-card">
       <h3>Create New Expense</h3>
+
       <Form.Group className="mb-3" controlId="expenseCategory">
         <Form.Select
           value={item.category}
-          onChange={(e) => setItem({ ...item, category: e.target.value })}
+          onChange={(e) =>
+            setItem({
+              ...item,
+              category: e.target.value,
+            })
+          }
         >
           <option value="Lodging">Lodging</option>
           <option value="Transport">Transport</option>
@@ -48,38 +73,58 @@ export default function CreateExpenseForm({ tripId, reloadTrip }) {
           <option value="Other">Other</option>
         </Form.Select>
       </Form.Group>
+
       <Form.Group className="mb-3" controlId="expenseTitle">
         <Form.Control
           type="text"
           value={item.title}
           placeholder="Enter title"
-          onChange={(e) => setItem({ ...item, title: e.target.value })}
+          onChange={(e) =>
+            setItem({
+              ...item,
+              title: e.target.value,
+            })
+          }
         />
       </Form.Group>
+
       <Form.Group className="mb-3" controlId="expenseCost">
         <Form.Control
           type="number"
           value={item.cost}
           placeholder="Enter cost"
-          onChange={(e) => setItem({ ...item, cost: e.target.value })}
+          onChange={(e) =>
+            setItem({
+              ...item,
+              cost: e.target.value,
+            })
+          }
         />
       </Form.Group>
+
       <Form.Group className="mb-3" controlId="expenseStatus">
         <Form.Select
           value={item.status}
-          onChange={(e) => setItem({ ...item, status: e.target.value })}
+          onChange={(e) =>
+            setItem({
+              ...item,
+              status: e.target.value,
+            })
+          }
         >
           <option value="estimated">Estimated</option>
           <option value="booked">Booked</option>
         </Form.Select>
       </Form.Group>
+
       <Button variant="primary" type="submit">
         Create Expense
       </Button>
     </Form>
   );
 }
+
 CreateExpenseForm.propTypes = {
   tripId: PropTypes.string.isRequired,
-  reloadTrip: PropTypes.func.isRequired,
+  reloadExpenses: PropTypes.func.isRequired,
 };
