@@ -13,17 +13,22 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const myapp = express();
+
+// For Railway's proxy for deployment
+myapp.set("trust proxy", 1);
+
 const PORT = process.env.PORT || 3000;
 
 // Session configuration
 myapp.use(
   session({
-    secret: "fintrip-session-secret",
+    secret: process.env.SESSION_SECRET || "fintrip-session-secret",
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: false,
+      secure: process.env.NODE_ENV === "production",
       httpOnly: true,
+      sameSite: "lax",
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
     },
   }),
@@ -62,6 +67,7 @@ myapp.get("*splat", function (req, res) {
   });
 });
 
-myapp.listen(PORT, () => {
+// Listens on every network interface for deployment
+myapp.listen(PORT, "0.0.0.0", () => {
   console.log(`Server is running on port ${PORT}`);
 });
