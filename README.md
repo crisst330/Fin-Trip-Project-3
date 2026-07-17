@@ -50,16 +50,20 @@ No axios, no Mongoose, no CORS package — the Vite dev proxy handles cross-orig
 
 ## Division of Work
 
-**Timothy Criss Jr.**
+### Timothy Criss Jr.
 
-- Authentication: register / log in / log out (Passport-local + sessions + UserContext)
-- Trip management: create, edit, delete trips (name, destination, dates, budget cap, traveler count); dashboard listing a user's trips
-- Budget visualization: summary numbers and color-shifting progress bar (green → yellow → red vs. the cap)
+- Authentication system: user registration, login, logout, Passport Local Strategy, session management, and protected routes
+- User management: MongoDB user repository (`UsersDB.js`), password hashing with bcrypt, Passport serialization/deserialization, and authenticated `UserContext`
+- Dashboard workflow: authenticated user experience, dashboard integration, navigation updates, and session persistence across the application
+- Trip management: edit and delete trip functionality (`EditTripForm`), trip ownership validation, and authenticated trip operations
+- Budget visualization: budget summary calculations and dynamic color-coded progress bar (green → yellow → red) that updates as trip expenses change
+- Frontend/backend integration: React state management, authenticated API communication, CRUD testing, debugging, and overall application integration
 
-**Priamos Koumas**
+### Priamos Koumas
 
+- Trip creation interface (`CreateTripForm`) and trip display components (`TripCard`)
 - Expense items: add, edit, and delete cost-line items (category, title, cost, link, notes, estimated-vs-booked status) inside a trip
-- Category filter: filter the expense list by category/title
+- Category filter: filter expense list by category/title
 - Trip-level backend routes (full CRUD on the trips collection): `GET/POST/PUT/DELETE /api/trips`, `GET /api/trips/:id`
 - Per-person split: computed per-traveler share, displayed in the trip detail
 - Synthetic data generation (1,000+ seeded trip records via Mockaroo, plus hand-crafted demo trips)
