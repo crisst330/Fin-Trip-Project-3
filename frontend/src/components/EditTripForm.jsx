@@ -47,9 +47,9 @@ export default function EditTripForm({ trip, reloadTrips, closeEditForm }) {
         body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
+        const data = await response.json();
+
         setErrorMessage(data.error || "Unable to update the trip.");
         return;
       }
@@ -58,7 +58,8 @@ export default function EditTripForm({ trip, reloadTrips, closeEditForm }) {
       closeEditForm();
     } catch (error) {
       console.error("Update trip error:", error);
-      setErrorMessage("Unable to connect to the server.");
+      
+      setErrorMessage("This trip may have been updated, but the page could not refresh.");
     } finally {
       setIsSubmitting(false);
     }
