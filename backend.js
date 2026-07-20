@@ -19,6 +19,13 @@ myapp.set("trust proxy", 1);
 
 const PORT = process.env.PORT || 3000;
 
+// Body parsers are registered late. express.json() and express.urlencoded() are set up after the session, Passport and static middleware.
+// It works because they still land before the routers but the ordering is fragile and easy to break. 
+// My suggestion is moving them up so the order is parsers - session - passport - static and routes.
+
+myapp.use(express.json());
+myapp.use(express.urlencoded({ extended: true }));
+
 // Session configuration
 myapp.use(
   session({
@@ -41,15 +48,6 @@ myapp.use(passport.session());
 
 // Will work once from the frontend (local server), we run the 'build' command to create the 'dist' folder
 myapp.use("/", express.static("./frontend/dist"));
-
-myapp.use(express.json());
-
-// This middleware is used to parse URL-encoded data sent in the request body.
-// It allows the server to handle form submissions and other types of data sent
-// in the URL-encoded format. The extended option allows for rich objects and
-// arrays to be encoded into the URL-encoded format, which can be useful for
-// handling complex data structures.
-myapp.use(express.urlencoded({ extended: true }));
 
 myapp.use("/api/auth", authRouter);
 myapp.use("/api/trips", tripsRouter);

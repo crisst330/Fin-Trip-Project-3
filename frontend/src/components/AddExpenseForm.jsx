@@ -11,7 +11,8 @@ const DEFAULT_ITEM = {
   status: "estimated",
 };
 
-export default function CreateExpenseForm({ tripId, reloadExpenses }) {
+// The file is AddExpenseForm.jsx and the README calls it that too, but the component and its PropTypes are named CreateExpenseForm
+export default function AddExpenseForm({ tripId, reloadExpenses }) {
   const [item, setItem] = useState(DEFAULT_ITEM);
 
   const onSubmit = async (evt) => {
@@ -22,7 +23,10 @@ export default function CreateExpenseForm({ tripId, reloadExpenses }) {
       cost: parseFloat(item.cost) || 0,
     };
 
-    console.log("🏓 onSubmit", payload);
+    // Might be a leftover debug log. The submit handler still has a console.log("🏓 onSubmit", payload) and a success log 
+    // which are currently showing up in the console.
+    
+    console.log("Expense created successfully:", data);
 
     try {
       const res = await fetch(`/api/trips/${tripId}/items`, {
@@ -121,7 +125,8 @@ export default function CreateExpenseForm({ tripId, reloadExpenses }) {
   );
 }
 
-CreateExpenseForm.propTypes = {
+// The file is AddExpenseForm.jsx and the README calls it that too, but the component and its PropTypes are named CreateExpenseForm
+AddExpenseForm.propTypes = {
   tripId: PropTypes.string.isRequired,
   reloadExpenses: PropTypes.func.isRequired,
 };
