@@ -22,8 +22,6 @@ export default function CreateExpenseForm({ tripId, reloadExpenses }) {
       cost: parseFloat(item.cost) || 0,
     };
 
-    console.log("🏓 onSubmit", payload);
-
     try {
       const res = await fetch(`/api/trips/${tripId}/items`, {
         method: "POST",
