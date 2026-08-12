@@ -8,21 +8,57 @@
 .app-navbar .navbar-brand {
   color: var(--white);
   font-weight: 700;
+  text-decoration: none;
 }
 
 .app-navbar .navbar-brand:hover {
   color: var(--gold);
 }
 
+.app-navbar .navbar-brand:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 .app-navbar .nav-link {
   color: var(--offwhite);
+  transition:
+    color 0.2s ease,
+    outline 0.2s ease;
 }
 
 .app-navbar .nav-link:hover,
-.app-navbar .nav-link:focus {
+.app-navbar .nav-link:focus-visible {
   color: var(--gold);
+}
+
+.app-navbar .nav-link:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .app-navbar .navbar-text {
   color: var(--offwhite);
+}
+
+.navbar-logout-button {
+  background: transparent;
+  border: none;
+  color: var(--offwhite);
+  cursor: pointer;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  text-align: left;
+}
+
+.navbar-logout-button:hover,
+.navbar-logout-button:focus-visible {
+  color: var(--gold);
+}
+
+.navbar-logout-button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
