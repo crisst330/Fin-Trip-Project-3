@@ -9,6 +9,10 @@ import { useUser } from "../context/UserContext.jsx";
 import { formatCurrency } from "../utils/currency.js";
 
 import heroBanner from "../assets/dashboard/hero_banner.png";
+import backpackImg from "../assets/dashboard/backpack_card.png";
+import walletImg from "../assets/dashboard/wallet_card.png";
+import signpostImg from "../assets/dashboard/signpost_card.png";
+import adventureImg from "../assets/dashboard/adventure_card.png";
 
 import "../styles/UserDashboardPage.css";
 
@@ -81,8 +85,8 @@ export default function UserDashboardPage() {
           </p>
 
           <p className="dashboard-hero-text">
-            Your travel plans are all in one place.
-            Track budgets, monitor expenses, and start planning your next adventure.
+            Your travel plans are all in one place. Track budgets, monitor
+            expenses, and start planning your next adventure.
           </p>
 
           <div className="dashboard-actions">
@@ -99,7 +103,7 @@ export default function UserDashboardPage() {
               to="/trips"
               className="dashboard-secondary-button"
             >
-              Plan New Trip
+              Create Trip
             </Button>
           </div>
         </div>
@@ -167,6 +171,124 @@ export default function UserDashboardPage() {
             </Col>
           </Row>
         )}
+      </section>
+
+      <section
+        aria-labelledby="dashboard-features-heading"
+        className="dashboard-section"
+      >
+        <h2
+          id="dashboard-features-heading"
+          className="dashboard-section-heading"
+        >
+          Quick Actions
+        </h2>
+
+        <Row className="g-3">
+          <Col lg={3} sm={6} xs={12}>
+            <Card className="dashboard-feature-card">
+              <img
+                src={backpackImg}
+                alt=""
+                className="dashboard-feature-image"
+              />
+
+              <Card.Body>
+                <Card.Title as="h3">Plan Trips</Card.Title>
+
+                <Card.Text>
+                  Create and manage your travel itinerary.
+                </Card.Text>
+
+                <Button
+                  as={Link}
+                  to="/trips"
+                  className="dashboard-feature-button"
+                >
+                  Create Trip
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          <Col lg={3} sm={6} xs={12}>
+            <Card className="dashboard-feature-card">
+              <img
+                src={walletImg}
+                alt=""
+                className="dashboard-feature-image"
+              />
+
+              <Card.Body>
+                <Card.Title as="h3">Track Budget</Card.Title>
+
+                <Card.Text>
+                  Monitor trip budgets and spending in one place.
+                </Card.Text>
+
+                <Button
+                  as={Link}
+                  to="/trips"
+                  className="dashboard-feature-button"
+                >
+                  Track Budget
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          <Col lg={3} sm={6} xs={12}>
+            <Card className="dashboard-feature-card">
+              <img
+                src={signpostImg}
+                alt=""
+                className="dashboard-feature-image"
+              />
+
+              <Card.Body>
+                <Card.Title as="h3">Add Expenses</Card.Title>
+
+                <Card.Text>
+                  Open a trip and add estimated or booked expenses.
+                </Card.Text>
+
+                <Button
+                  as={Link}
+                  to="/trips"
+                  className="dashboard-feature-button"
+                >
+                  Add Expenses
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          <Col lg={3} sm={6} xs={12}>
+            <Card className="dashboard-feature-card">
+              <img
+                src={adventureImg}
+                alt=""
+                className="dashboard-feature-image"
+              />
+
+              <Card.Body>
+                <Card.Title as="h3">Explore More</Card.Title>
+
+                <Card.Text>
+                  Review your saved trips and keep planning your next adventure.
+                </Card.Text>
+
+                <Button
+                  as={Link}
+                  to="/trips"
+                  className="dashboard-feature-button"
+                >
+                  View My Trips
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
       </section>
 
       <section
