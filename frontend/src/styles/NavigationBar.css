@@ -1,12 +1,19 @@
 .app-navbar {
-  background: var(--military-green);
-  border-bottom: 3px solid var(--gold);
   width: 100vw;
   margin-left: calc(-50vw + 50%);
+
+  background: var(--military-green);
+
+  border-bottom: 3px solid var(--gold);
 }
+
+/* -----------------------------
+   Brand
+------------------------------ */
 
 .app-navbar .navbar-brand {
   color: var(--white);
+
   font-weight: 700;
   text-decoration: none;
 }
@@ -18,11 +25,17 @@
 .app-navbar .navbar-brand:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 4px;
-  border-radius: 4px;
+
+  border-radius: var(--radius-sm);
 }
+
+/* -----------------------------
+   Navigation Links
+------------------------------ */
 
 .app-navbar .nav-link {
   color: var(--offwhite);
+
   transition:
     color 0.2s ease,
     outline 0.2s ease;
@@ -36,20 +49,36 @@
 .app-navbar .nav-link:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 4px;
-  border-radius: 4px;
+
+  border-radius: var(--radius-sm);
 }
+
+/* -----------------------------
+   Navbar Text
+------------------------------ */
 
 .app-navbar .navbar-text {
   color: var(--offwhite);
 }
 
+/* -----------------------------
+   Logout Button
+------------------------------ */
+
 .navbar-logout-button {
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+
   background: transparent;
   border: none;
+
   color: var(--offwhite);
+
   cursor: pointer;
-  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
   text-align: left;
+
+  transition:
+    color 0.2s ease,
+    outline 0.2s ease;
 }
 
 .navbar-logout-button:hover,
@@ -60,5 +89,6 @@
 .navbar-logout-button:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 4px;
-  border-radius: 4px;
+
+  border-radius: var(--radius-sm);
 }

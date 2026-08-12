@@ -1,26 +1,132 @@
+/* ==========================================================
+   FinTrip Design System
+   ========================================================== */
+
 :root {
+
+  /* ========= Brand Colors ========= */
+
   --military-green: #2f4f4f;
-  --green: #2e8b57;
-  --green-dark: #006400;
+  --sage-green: #658c76;
+  --forest-green: #2e8b57;
+  --forest-green-dark: #006400;
+
   --gold: #daa520;
-  --white: #fffaf0;
+  --tan: #a67c58;
+
+  --navy: #3f438c;
+  --red: #bf5454;
+
+  --background: #fffaf0;
+  --surface: #ffffff;
+
+  --text-primary: #2f4f4f;
+  --text-secondary: #555555;
+
+  --border: #d9d9d9;
+
   --offwhite: #dcdcdc;
-  --gray: #808080;
+  --white: #ffffff;
+
+
+
+  /* ========= Typography ========= */
+
+  --font-body: "Spinnaker", sans-serif;
+  --font-heading: "Poppins", sans-serif;
+
+  --text-xs: .8rem;
+  --text-sm: .95rem;
+  --text-md: 1rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.8rem;
+
+
+
+  /* ========= Border Radius ========= */
+
+  --radius-sm: .4rem;
+  --radius-md: .75rem;
+  --radius-lg: 1rem;
+
+
+
+  /* ========= Shadows ========= */
+
+  --shadow-sm:
+    0 .15rem .5rem rgb(0 0 0 / 6%);
+
+  --shadow-md:
+    0 .3rem 1rem rgb(0 0 0 / 10%);
+
+  --shadow-lg:
+    0 .5rem 1.5rem rgb(0 0 0 / 14%);
+
+
+
+  /* ========= Layout ========= */
+
+  --container-width: 1300px;
+
+  --space-xs: .5rem;
+  --space-sm: .75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+
+
+  /* ========= Animation ========= */
+
+  --transition-fast: .2s ease;
+  --transition-normal: .3s ease;
+
+
+
+  /* ========= Accessibility ========= */
+
+  --focus-ring:
+    0 0 0 .2rem rgba(63,67,140,.25);
+
 }
+
+
+
+/* ==========================================================
+   Global Reset
+   ========================================================== */
 
 html,
 body {
+
   margin: 0;
   padding: 0;
+
   min-height: 100%;
+
+  background: var(--background);
+
+  color: var(--text-primary);
+
 }
-/* Font pairing */
+
+
+
+/* ==========================================================
+   Typography
+   ========================================================== */
+
 body {
-  font-family: "Spinnaker", sans-serif;
+
+  font-family: var(--font-body);
+
   font-weight: 400;
-  font-style: normal;
-  color: var(--military-green);
-  background: var(--white);
+
+  line-height: 1.6;
+
 }
 
 h1,
@@ -28,66 +134,168 @@ h2,
 h3,
 h4,
 h5,
-h6, 
-footer {
-  font-family: "Poppins", sans-serif;
+h6 {
+
+  font-family: var(--font-heading);
+
   font-weight: 700;
-  font-style: normal;
+
+  color: var(--navy);
+
+}
+
+footer{
+
+  font-family: var(--font-heading);
+
 }
 
 
+
+/* ==========================================================
+   Links
+   ========================================================== */
+
 a {
-  color: var(--green);
+
+  color: var(--forest-green);
+
+  transition: color var(--transition-fast);
+
 }
 
 a:hover,
-a:focus {
-  color: var(--green-dark);
+a:focus-visible {
+
+  color: var(--forest-green-dark);
+
+}
+
+
+
+/* ==========================================================
+   Buttons
+   ========================================================== */
+
+.btn {
+
+  border-radius: var(--radius-sm);
+
+  transition: all var(--transition-fast);
+
 }
 
 .btn-primary {
-  background-color: var(--green);
-  border-color: var(--green);
-  color: var(--white);
+
+  background: var(--forest-green);
+
+  border-color: var(--forest-green);
+
 }
 
 .btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active {
-  background-color: var(--green-dark);
-  border-color: var(--green-dark);
+.btn-primary:focus-visible {
+
+  background: var(--forest-green-dark);
+
+  border-color: var(--forest-green-dark);
+
+}
+
+
+
+/* ==========================================================
+   Forms
+   ========================================================== */
+
+.form-control,
+.form-select {
+
+  border-radius: var(--radius-sm);
+
 }
 
 .form-control:focus,
 .form-select:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 0.2rem rgba(46, 139, 87, 0.25);
+
+  border-color: var(--forest-green);
+
+  box-shadow: var(--focus-ring);
+
 }
 
-.site-footer {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  background: var(--military-green);
-  color: var(--white);
-  text-align: center;
-  padding: 2rem 0;
+
+
+/* ==========================================================
+   Accessibility
+   ========================================================== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+
+  outline: none;
+
+  box-shadow: var(--focus-ring);
+
 }
 
-.site-footer a {
-  color: var(--gold);
-}
 
-.site-footer hr {
-  border-color: var(--offwhite);
-  opacity: 0.3;
-}
+
+/* ==========================================================
+   Layout Helpers
+   ========================================================== */
 
 .page-wrapper {
+
   min-height: 100vh;
+
   display: flex;
+
   flex-direction: column;
+
 }
 
 .main-content {
+
   flex: 1;
+
+}
+
+
+
+/* ==========================================================
+   Footer
+   ========================================================== */
+
+.site-footer {
+
+  width: 100vw;
+
+  margin-left: calc(-50vw + 50%);
+
+  background: var(--military-green);
+
+  color: var(--white);
+
+  text-align: center;
+
+  padding: 2rem 0;
+
+}
+
+.site-footer a {
+
+  color: var(--gold);
+
+}
+
+.site-footer hr {
+
+  border-color: var(--offwhite);
+
+  opacity: .3;
+
 }

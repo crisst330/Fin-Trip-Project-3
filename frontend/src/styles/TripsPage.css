@@ -1,36 +1,37 @@
 .trips-page {
   width: 100%;
-  max-width: 1300px;
+  max-width: var(--container-width);
   margin: 0 auto;
-  padding: 2rem 2rem 3rem;
+  padding: var(--space-xl) var(--space-xl) var(--space-2xl);
 }
 
 .trips-page > h1 {
-  margin-bottom: 0.5rem;
-  color: #3f438c;
+  margin-bottom: var(--space-xs);
+  color: var(--navy);
 }
 
 .trips-page > p {
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-xl);
+  color: var(--text-secondary);
 }
 
 .trips-create-section {
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-2xl);
 }
 
 .trips-create-section h2,
 .trips-saved-section h2 {
   margin-bottom: 1.25rem;
-  color: #3f438c;
+  color: var(--navy);
 }
 
 .trips-saved-section {
-  padding-top: 2rem;
-  border-top: 1px solid #d9d9d9;
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--border);
 }
 
 @media (max-width: 767px) {
   .trips-page {
-    padding: 1rem;
+    padding: var(--space-md);
   }
 }
