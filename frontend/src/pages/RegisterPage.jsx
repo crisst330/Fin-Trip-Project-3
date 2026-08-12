@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import validator from "validator";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -33,6 +34,11 @@ export default function RegisterPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (!isPasswordStrong) {
+      setErrorMessage("Password does not meet the requirements shown below.");
+      return;
+    }
+
     setErrorMessage("");
     setIsSubmitting(true);
 
@@ -60,6 +66,14 @@ export default function RegisterPage() {
       setIsSubmitting(false);
     }
   };
+
+  const isPasswordStrong = validator.isStrongPassword(formData.password, {
+    minLength: 8,
+    minLowercase: 1,
+    minUppercase: 1,
+    minNumbers: 1,
+    minSymbols: 1,
+  });
 
   return (
     <main className="register-page">
@@ -154,8 +168,19 @@ export default function RegisterPage() {
                 value={formData.password}
                 onChange={handleChange}
                 autoComplete="new-password"
+                aria-describedby="register-password-requirements"
                 required
               />
+
+              <div
+                id="register-password-requirements"
+                className="register-password-hint"
+              >
+                {formData.password &&
+                  (isPasswordStrong
+                    ? "Strong password."
+                    : "Must be at least 8 characters with a lowercase letter, an uppercase letter, a number, and a symbol.")}
+              </div>
 
               <Button
                 type="button"

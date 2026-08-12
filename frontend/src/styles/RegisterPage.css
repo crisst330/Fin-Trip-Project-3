@@ -9,9 +9,6 @@
   background-color: var(--offwhite);
 }
 
-/* -----------------------------
-   Main Register Card
------------------------------- */
 
 .register-card {
   display: grid;
@@ -31,9 +28,6 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* -----------------------------
-   Left Visual Panel
------------------------------- */
 
 .register-visual {
   position: relative;
@@ -116,9 +110,6 @@
   line-height: 1.65;
 }
 
-/* -----------------------------
-   Right Form Panel
------------------------------- */
 
 .register-form-panel {
   display: flex;
@@ -155,9 +146,6 @@
   line-height: 1.6;
 }
 
-/* -----------------------------
-   Form Controls
------------------------------- */
 
 .register-form-panel .form-label {
   color: var(--text-primary);
@@ -184,9 +172,15 @@
   box-shadow: none;
 }
 
-/* -----------------------------
-   Password Toggle
------------------------------- */
+
+.register-password-hint {
+  margin: var(--space-xs) 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.85rem;
+}
+
 
 .register-password-toggle {
   margin-top: var(--space-xs);
@@ -215,9 +209,6 @@
   box-shadow: none;
 }
 
-/* -----------------------------
-   Create Account Button
------------------------------- */
 
 .register-submit-button {
   min-width: 150px;
@@ -256,9 +247,6 @@
   opacity: 0.65;
 }
 
-/* -----------------------------
-   Error Alert
------------------------------- */
 
 .register-form-panel .alert-danger {
   color: var(--text-primary);
@@ -268,9 +256,6 @@
   border-color: var(--red);
 }
 
-/* -----------------------------
-   Responsive Layout
------------------------------- */
 
 @media (max-width: 991px) {
   .register-card {

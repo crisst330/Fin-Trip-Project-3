@@ -2,10 +2,13 @@ import { useState, useEffect, useCallback } from "react";
 import { useParams, Link } from "react-router";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 import ExpenseList from "../components/ExpenseList.jsx";
 import AddExpenseForm from "../components/AddExpenseForm.jsx";
 import BudgetSummary from "../components/BudgetSummary.jsx";
+import EditTripForm from "../components/EditTripForm.jsx";
 import { useUser } from "../context/UserContext.jsx";
 
 import "../styles/TripDetailPage.css";
@@ -17,6 +20,7 @@ export default function TripDetailPage() {
 
   const [trip, setTrip] = useState(null);
   const [query, setQuery] = useState("");
+  const [showEditForm, setShowEditForm] = useState(false);
 
   const reloadTrip = useCallback(async () => {
     const res = await fetch(`/api/trips/${tripId}`);
@@ -48,7 +52,17 @@ export default function TripDetailPage() {
       {trip ? (
         <>
           <div>
-            <h2>{trip.name}</h2>
+            <div className="d-flex justify-content-between align-items-center">
+              <h2 className="mb-0">{trip.name}</h2>
+
+              <Button
+                type="button"
+                variant="outline-primary"
+                onClick={() => setShowEditForm(true)}
+              >
+                Edit Trip
+              </Button>
+            </div>
 
             <p>
               <strong>Destination:</strong> {trip.destination}
@@ -75,6 +89,20 @@ export default function TripDetailPage() {
           </div>
 
           <BudgetSummary trip={trip} />
+
+          <Modal show={showEditForm} onHide={() => setShowEditForm(false)}>
+            <Modal.Header closeButton>
+              <Modal.Title>Edit Trip</Modal.Title>
+            </Modal.Header>
+
+            <Modal.Body>
+              <EditTripForm
+                trip={trip}
+                reloadTrips={reloadTrip}
+                closeEditForm={() => setShowEditForm(false)}
+              />
+            </Modal.Body>
+          </Modal>
         </>
       ) : (
         <p>Loading trip details...</p>
