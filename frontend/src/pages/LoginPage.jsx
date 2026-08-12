@@ -5,6 +5,9 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 import { useUser } from "../context/UserContext.jsx";
+import loginImage from "../assets/dashboard/hero_banner.png";
+
+import "../styles/LoginPage.css";
 
 export default function LoginPage() {
   const { setUser } = useUser();
@@ -49,7 +52,7 @@ export default function LoginPage() {
         setErrorMessage(data.error || "Unable to login at this time.");
         return;
       }
-      // After successfully logging in, update the shared UserContext
+
       setUser(data);
       navigate("/dashboard");
     } catch (error) {
@@ -61,50 +64,98 @@ export default function LoginPage() {
   };
 
   return (
-    <section>
-      <h1>Log In</h1>
-
-      <p>Log in to view and manage your FinTrip travel plans.</p>
-
-      {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="login-email">
-          <Form.Label>Email</Form.Label>
-
-          <Form.Control
-            type="email"
-            name="email"
-            value={credentials.email}
-            onChange={handleChange}
-            required
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="login-password">
-          <Form.Label>Password</Form.Label>
-
-          <Form.Control
-            type={showPassword ? "text" : "password"}
-            name="password"
-            value={credentials.password}
-            onChange={handleChange}
-            required
+    <main className="login-page">
+      <section
+        className="login-card"
+        aria-labelledby="login-heading"
+      >
+        <div className="login-visual">
+          <img
+            src={loginImage}
+            alt=""
+            className="login-visual-image"
           />
 
-          <Button
-            type="button"
-            variant="link"
-            onClick={() => setShowPassword(!showPassword)}
+          <div className="login-visual-overlay">
+            <p className="login-brand">FinTrip</p>
+
+            <h2>
+              Plan More.
+              <span> Worry Less.</span>
+            </h2>
+
+            <p>
+              Keep your trips, budgets, and expenses organized in one place.
+            </p>
+          </div>
+        </div>
+
+        <div className="login-form-panel">
+          <div className="login-heading-accent" aria-hidden="true" />
+
+          <h1 id="login-heading">Welcome Back</h1>
+
+          <p className="login-intro">
+            Log in to continue planning and managing your FinTrip adventures.
+          </p>
+
+          {errorMessage && (
+            <Alert variant="danger" role="alert">
+              {errorMessage}
+            </Alert>
+          )}
+
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="login-email">
+              <Form.Label>Email</Form.Label>
+
+              <Form.Control
+                type="email"
+                name="email"
+                value={credentials.email}
+                onChange={handleChange}
+                autoComplete="email"
+                placeholder="you@example.com"
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-4" controlId="login-password">
+              <Form.Label>Password</Form.Label>
+
+              <Form.Control
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={credentials.password}
+                onChange={handleChange}
+                autoComplete="current-password"
+                required
+              />
+
+              <Button
+                type="button"
+                variant="link"
+                className="login-password-toggle"
+                aria-pressed={showPassword}
+                aria-label={
+                  showPassword ? "Hide password" : "Show password"
+                }
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide Password" : "Show Password"}
+              </Button>
+            </Form.Group>
+
+            <Button
+              type="submit"
+              className="login-submit-button"
+              disabled={isSubmitting}
             >
-            {showPassword ? "Hide Password" : "Show Password"}
+              {isSubmitting ? "Logging in..." : "Log In"}
             </Button>
-        </Form.Group>
-
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Logging in..." : "Log In"}
-        </Button>
-      </Form>
-    </section>
+          </Form>
+        </div>
+      </section>
+    </main>
   );
 }
