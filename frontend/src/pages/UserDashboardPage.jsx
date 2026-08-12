@@ -77,12 +77,12 @@ export default function UserDashboardPage() {
 
         <div className="dashboard-hero-content">
           <p className="dashboard-welcome">
-            Welcome back, <strong>{user?.name}</strong>.
+            Welcome back, <strong>{user?.name}</strong>!
           </p>
 
           <p className="dashboard-hero-text">
-            Ready for your next adventure? Keep every trip organized and every
-            dollar accounted for.
+            Your travel plans are all in one place.
+            Track budgets, monitor expenses, and start planning your next adventure.
           </p>
 
           <div className="dashboard-actions">

@@ -1,5 +1,8 @@
 .user-dashboard {
-  padding: 2rem 0 3rem;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
 }
 
 /* -----------------------------
@@ -20,19 +23,20 @@
 }
 
 .dashboard-hero-content {
-  padding: 1.5rem 2rem 2rem;
+  padding: 1.75rem 2rem 2rem;
 }
 
 .dashboard-welcome {
   margin-bottom: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #3f438c;
 }
 
 .dashboard-hero-text {
-  max-width: 42rem;
-  margin-bottom: 1rem;
+  max-width: 46rem;
+  margin-bottom: 1.25rem;
   color: #333333;
+  line-height: 1.6;
 }
 
 .dashboard-actions {
@@ -45,6 +49,8 @@
   background-color: #658c76;
   border-color: #658c76;
   color: #000000;
+  font-weight: 600;
+  padding: 0.65rem 1.2rem;
 }
 
 .dashboard-primary-button:hover,
@@ -58,6 +64,8 @@
   background-color: #ffffff;
   border-color: #3f438c;
   color: #3f438c;
+  font-weight: 600;
+  padding: 0.65rem 1.2rem;
 }
 
 .dashboard-secondary-button:hover,
@@ -71,12 +79,13 @@
    Dashboard Sections
 ------------------------------ */
 .dashboard-section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .dashboard-section-heading {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   color: #3f438c;
+  font-size: 2rem;
 }
 
 /* -----------------------------
@@ -84,20 +93,29 @@
 ------------------------------ */
 .dashboard-stat-card {
   height: 100%;
+  min-height: 150px;
   border: 1px solid #d9d9d9;
-  border-radius: 0.75rem;
+  border-radius: 0.85rem;
+  box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 8%);
 }
 
 .dashboard-stat-card .card-body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.dashboard-stat-card .card-title {
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
 }
 
 .dashboard-stat-value {
   margin: 0;
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 700;
+  line-height: 1.1;
 }
 
 .dashboard-stat-purple {
@@ -121,17 +139,37 @@
 ------------------------------ */
 .dashboard-trip-card {
   height: 100%;
+  min-height: 250px;
   border: 1px solid #d9d9d9;
-  border-radius: 0.75rem;
+  border-radius: 0.85rem;
+  box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 8%);
+}
+
+.dashboard-trip-card .card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
 }
 
 .dashboard-trip-card .card-title {
+  margin-bottom: 1rem;
   color: #3f438c;
+  font-size: 1.4rem;
+}
+
+.dashboard-trip-card .card-text {
+  margin-bottom: 0.75rem;
+}
+
+.dashboard-trip-card .dashboard-view-button {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .dashboard-view-button {
   border-color: #3f438c;
   color: #3f438c;
+  font-weight: 600;
 }
 
 .dashboard-view-button:hover,
@@ -145,6 +183,7 @@
    Error Message
 ------------------------------ */
 .dashboard-error {
+  margin-bottom: 2rem;
   color: #733917;
   font-weight: 600;
 }
@@ -152,13 +191,23 @@
 /* -----------------------------
    Responsive Layout
 ------------------------------ */
+@media (max-width: 991px) {
+  .user-dashboard {
+    padding: 1.5rem;
+  }
+}
+
 @media (max-width: 767px) {
   .user-dashboard {
-    padding-top: 1rem;
+    padding: 1rem;
   }
 
   .dashboard-hero-content {
     padding: 1.25rem;
+  }
+
+  .dashboard-section-heading {
+    font-size: 1.6rem;
   }
 
   .dashboard-actions {
