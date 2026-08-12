@@ -2,26 +2,37 @@
   padding: 2rem 0 3rem;
 }
 
+/* -----------------------------
+   Hero Section
+------------------------------ */
 .dashboard-hero {
-  background-color: #3f438c;
-  color: #ffffff;
+  overflow: hidden;
+  border: 1px solid #d9d9d9;
   border-radius: 1rem;
-  padding: 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  background-color: #ffffff;
+}
+
+.dashboard-hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.dashboard-hero-content {
+  padding: 1.5rem 2rem 2rem;
 }
 
 .dashboard-welcome {
-  margin-bottom: 0.25rem;
-  font-size: 1rem;
-}
-
-.dashboard-hero h1 {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #3f438c;
 }
 
 .dashboard-hero-text {
-  max-width: 650px;
-  margin-bottom: 1.5rem;
+  max-width: 42rem;
+  margin-bottom: 1rem;
+  color: #333333;
 }
 
 .dashboard-actions {
@@ -38,36 +49,43 @@
 
 .dashboard-primary-button:hover,
 .dashboard-primary-button:focus {
-  background-color: #ffffff;
-  border-color: #ffffff;
-  color: #3f438c;
+  background-color: #3f438c;
+  border-color: #3f438c;
+  color: #ffffff;
 }
 
 .dashboard-secondary-button {
   background-color: #ffffff;
-  border-color: #ffffff;
+  border-color: #3f438c;
   color: #3f438c;
 }
 
 .dashboard-secondary-button:hover,
 .dashboard-secondary-button:focus {
-  background-color: #f2f2f2;
-  border-color: #f2f2f2;
-  color: #3f438c;
+  background-color: #3f438c;
+  border-color: #3f438c;
+  color: #ffffff;
 }
 
+/* -----------------------------
+   Dashboard Sections
+------------------------------ */
 .dashboard-section {
   margin-bottom: 2.5rem;
 }
 
 .dashboard-section-heading {
   margin-bottom: 1rem;
+  color: #3f438c;
 }
 
+/* -----------------------------
+   Travel Snapshot Cards
+------------------------------ */
 .dashboard-stat-card {
+  height: 100%;
   border: 1px solid #d9d9d9;
   border-radius: 0.75rem;
-  height: 100%;
 }
 
 .dashboard-stat-card .card-body {
@@ -98,10 +116,13 @@
   border-top: 0.4rem solid #bf5454;
 }
 
+/* -----------------------------
+   Trip Preview Cards
+------------------------------ */
 .dashboard-trip-card {
+  height: 100%;
   border: 1px solid #d9d9d9;
   border-radius: 0.75rem;
-  height: 100%;
 }
 
 .dashboard-trip-card .card-title {
@@ -120,18 +141,24 @@
   color: #ffffff;
 }
 
+/* -----------------------------
+   Error Message
+------------------------------ */
 .dashboard-error {
   color: #733917;
   font-weight: 600;
 }
 
+/* -----------------------------
+   Responsive Layout
+------------------------------ */
 @media (max-width: 767px) {
   .user-dashboard {
     padding-top: 1rem;
   }
 
-  .dashboard-hero {
-    padding: 1.5rem;
+  .dashboard-hero-content {
+    padding: 1.25rem;
   }
 
   .dashboard-actions {

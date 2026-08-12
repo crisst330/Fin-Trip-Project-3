@@ -8,6 +8,8 @@ import { Link } from "react-router";
 import { useUser } from "../context/UserContext.jsx";
 import { formatCurrency } from "../utils/currency.js";
 
+import heroBanner from "../assets/dashboard/hero_banner.png";
+
 import "../styles/UserDashboardPage.css";
 
 export default function UserDashboardPage() {
@@ -71,31 +73,35 @@ export default function UserDashboardPage() {
   return (
     <section className="user-dashboard">
       <header className="dashboard-hero">
-        <p className="dashboard-welcome">Welcome back,</p>
+        <img src={heroBanner} alt="" className="dashboard-hero-image" />
 
-        <h1>{user?.name}</h1>
+        <div className="dashboard-hero-content">
+          <p className="dashboard-welcome">
+            Welcome back, <strong>{user?.name}</strong>.
+          </p>
 
-        <p className="dashboard-hero-text">
-          Plan more, worry less. Keep your trips, expenses, and travel budgets
-          organized in one place.
-        </p>
+          <p className="dashboard-hero-text">
+            Ready for your next adventure? Keep every trip organized and every
+            dollar accounted for.
+          </p>
 
-        <div className="dashboard-actions">
-          <Button
-            as={Link}
-            to="/trips"
-            className="dashboard-primary-button"
-          >
-            Plan a Trip
-          </Button>
+          <div className="dashboard-actions">
+            <Button
+              as={Link}
+              to="/trips"
+              className="dashboard-primary-button"
+            >
+              View My Trips
+            </Button>
 
-          <Button
-            as={Link}
-            to="/trips"
-            className="dashboard-secondary-button"
-          >
-            View My Trips
-          </Button>
+            <Button
+              as={Link}
+              to="/trips"
+              className="dashboard-secondary-button"
+            >
+              Plan New Trip
+            </Button>
+          </div>
         </div>
       </header>
 
@@ -124,7 +130,6 @@ export default function UserDashboardPage() {
               <Card className="dashboard-stat-card dashboard-stat-purple">
                 <Card.Body>
                   <Card.Title as="h3">Trips Created</Card.Title>
-
                   <p className="dashboard-stat-value">{totalTrips}</p>
                 </Card.Body>
               </Card>
@@ -134,7 +139,6 @@ export default function UserDashboardPage() {
               <Card className="dashboard-stat-card dashboard-stat-green">
                 <Card.Body>
                   <Card.Title as="h3">Total Budget</Card.Title>
-
                   <p className="dashboard-stat-value">
                     {formatCurrency(totalBudget)}
                   </p>
@@ -146,7 +150,6 @@ export default function UserDashboardPage() {
               <Card className="dashboard-stat-card dashboard-stat-tan">
                 <Card.Body>
                   <Card.Title as="h3">Expenses Logged</Card.Title>
-
                   <p className="dashboard-stat-value">{totalExpenses}</p>
                 </Card.Body>
               </Card>
@@ -156,7 +159,6 @@ export default function UserDashboardPage() {
               <Card className="dashboard-stat-card dashboard-stat-red">
                 <Card.Body>
                   <Card.Title as="h3">Total Spent</Card.Title>
-
                   <p className="dashboard-stat-value">
                     {formatCurrency(totalSpent)}
                   </p>
