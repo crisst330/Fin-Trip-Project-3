@@ -8,7 +8,7 @@ import CreateTripForm from "../components/CreateTripForm.jsx";
 import TripCard from "../components/TripCard.jsx";
 import { useUser } from "../context/UserContext.jsx";
 
-import "./DashboardPage.css";
+import "../styles/DashboardPage.css";
 
 export default function DashboardPage() {
   const { user } = useUser();

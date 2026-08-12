@@ -1,6 +1,6 @@
 import ExpenseItem from "./ExpenseItem.jsx";
 import PropTypes from "prop-types";
-import "./ExpenseList.css";
+import "../styles/ExpenseList.css";
 
 export default function ExpenseList({
   items,

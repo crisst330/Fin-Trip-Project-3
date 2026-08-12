@@ -1,4 +1,4 @@
-import "./AboutPage.css";
+import "../styles/AboutPage.css";
 
 export default function AboutPage() {
   return (

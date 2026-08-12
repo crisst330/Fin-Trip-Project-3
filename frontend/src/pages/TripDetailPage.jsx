@@ -7,7 +7,7 @@ import ExpenseList from "../components/ExpenseList.jsx";
 import AddExpenseForm from "../components/AddExpenseForm.jsx";
 import BudgetSummary from "../components/BudgetSummary.jsx";
 import { useUser } from "../context/UserContext.jsx";
-import "./TripDetailPage.css";
+import "../styles/TripDetailPage.css";
 import { formatCurrency } from "../utils/currency.js";
 
 export default function TripDetailPage() {

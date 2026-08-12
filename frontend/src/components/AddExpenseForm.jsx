@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import PropTypes from "prop-types";
-import "./AddExpenseForm.css";
+import "../styles/AddExpenseForm.css";
 
 const DEFAULT_ITEM = {
   category: "Lodging",

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import PropTypes from "prop-types";
-import "./ExpenseItem.css";
+import "../styles/ExpenseItem.css";
 import { formatCurrency } from "../utils/currency.js";
 
 export default function ExpenseItem({ item, tripId, reloadExpenses }) {

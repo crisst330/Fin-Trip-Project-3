@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import { Link, useLocation, useNavigate } from "react-router";
 
 import { useUser } from "../context/UserContext.jsx";
-import "./NavigationBar.css";
+import "../styles/NavigationBar.css";
 
 export default function NavigationBar() {
   const { user, setUser } = useUser();
