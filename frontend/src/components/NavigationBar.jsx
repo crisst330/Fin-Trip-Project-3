@@ -43,7 +43,11 @@ export default function NavigationBar() {
 
             {user ? (
               <>
-                <Nav.Link as={Link} to="/">
+                <Nav.Link as={Link} to="/dashboard">
+                  Dashboard
+                </Nav.Link>
+
+                <Nav.Link as={Link} to="/trips">
                   My Trips
                 </Nav.Link>
 

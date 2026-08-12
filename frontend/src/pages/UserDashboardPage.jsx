@@ -1,0 +1,234 @@
+import { useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import { Link } from "react-router";
+
+import { useUser } from "../context/UserContext.jsx";
+import { formatCurrency } from "../utils/currency.js";
+
+import "../styles/UserDashboardPage.css";
+
+export default function UserDashboardPage() {
+  const { user } = useUser();
+
+  const [trips, setTrips] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    const loadTrips = async () => {
+      if (!user) {
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const response = await fetch("/api/trips");
+
+        if (!response.ok) {
+          throw new Error("Unable to load dashboard data.");
+        }
+
+        const data = await response.json();
+        setTrips(data);
+      } catch (error) {
+        console.error("Dashboard trip loading error:", error);
+        setErrorMessage("Unable to load your dashboard information.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadTrips();
+  }, [user]);
+
+  const totalTrips = trips.length;
+
+  const totalBudget = trips.reduce(
+    (total, trip) => total + Number(trip.budgetCap || 0),
+    0,
+  );
+
+  const totalExpenses = trips.reduce(
+    (total, trip) => total + (trip.items?.length || 0),
+    0,
+  );
+
+  const totalSpent = trips.reduce((tripTotal, trip) => {
+    const tripExpenses =
+      trip.items?.reduce(
+        (expenseTotal, item) => expenseTotal + Number(item.cost || 0),
+        0,
+      ) || 0;
+
+    return tripTotal + tripExpenses;
+  }, 0);
+
+  const dashboardTrips = trips.slice(0, 3);
+
+  return (
+    <section className="user-dashboard">
+      <header className="dashboard-hero">
+        <p className="dashboard-welcome">Welcome back,</p>
+
+        <h1>{user?.name}</h1>
+
+        <p className="dashboard-hero-text">
+          Plan more, worry less. Keep your trips, expenses, and travel budgets
+          organized in one place.
+        </p>
+
+        <div className="dashboard-actions">
+          <Button
+            as={Link}
+            to="/trips"
+            className="dashboard-primary-button"
+          >
+            Plan a Trip
+          </Button>
+
+          <Button
+            as={Link}
+            to="/trips"
+            className="dashboard-secondary-button"
+          >
+            View My Trips
+          </Button>
+        </div>
+      </header>
+
+      {errorMessage && (
+        <p className="dashboard-error" role="alert">
+          {errorMessage}
+        </p>
+      )}
+
+      <section
+        aria-labelledby="dashboard-summary-heading"
+        className="dashboard-section"
+      >
+        <h2
+          id="dashboard-summary-heading"
+          className="dashboard-section-heading"
+        >
+          Your Travel Snapshot
+        </h2>
+
+        {isLoading ? (
+          <p>Loading your travel summary...</p>
+        ) : (
+          <Row className="g-3">
+            <Col lg={3} sm={6} xs={12}>
+              <Card className="dashboard-stat-card dashboard-stat-purple">
+                <Card.Body>
+                  <Card.Title as="h3">Trips Created</Card.Title>
+
+                  <p className="dashboard-stat-value">{totalTrips}</p>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col lg={3} sm={6} xs={12}>
+              <Card className="dashboard-stat-card dashboard-stat-green">
+                <Card.Body>
+                  <Card.Title as="h3">Total Budget</Card.Title>
+
+                  <p className="dashboard-stat-value">
+                    {formatCurrency(totalBudget)}
+                  </p>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col lg={3} sm={6} xs={12}>
+              <Card className="dashboard-stat-card dashboard-stat-tan">
+                <Card.Body>
+                  <Card.Title as="h3">Expenses Logged</Card.Title>
+
+                  <p className="dashboard-stat-value">{totalExpenses}</p>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col lg={3} sm={6} xs={12}>
+              <Card className="dashboard-stat-card dashboard-stat-red">
+                <Card.Body>
+                  <Card.Title as="h3">Total Spent</Card.Title>
+
+                  <p className="dashboard-stat-value">
+                    {formatCurrency(totalSpent)}
+                  </p>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        )}
+      </section>
+
+      <section
+        aria-labelledby="dashboard-trips-heading"
+        className="dashboard-section"
+      >
+        <div className="d-flex justify-content-between align-items-center mb-3">
+          <h2
+            id="dashboard-trips-heading"
+            className="dashboard-section-heading mb-0"
+          >
+            Your Trips
+          </h2>
+
+          <Button
+            as={Link}
+            to="/trips"
+            variant="outline-primary"
+            className="dashboard-view-button"
+          >
+            View All Trips
+          </Button>
+        </div>
+
+        {!isLoading && trips.length === 0 ? (
+          <p>
+            You do not have any trips yet. Start planning your first adventure.
+          </p>
+        ) : (
+          <Row className="g-3">
+            {dashboardTrips.map((trip) => (
+              <Col lg={4} md={6} xs={12} key={trip._id}>
+                <Card className="dashboard-trip-card">
+                  <Card.Body>
+                    <Card.Title as="h3">{trip.name}</Card.Title>
+
+                    <Card.Text>
+                      <strong>Destination:</strong> {trip.destination}
+                    </Card.Text>
+
+                    <Card.Text>
+                      <strong>Budget:</strong>{" "}
+                      {formatCurrency(trip.budgetCap)}
+                    </Card.Text>
+
+                    <Card.Text>
+                      <strong>Travelers:</strong> {trip.travelers}
+                    </Card.Text>
+
+                    <Button
+                      as={Link}
+                      to={`/trips/${trip._id}`}
+                      variant="outline-primary"
+                      className="dashboard-view-button"
+                    >
+                      View Trip
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        )}
+      </section>
+    </section>
+  );
+}

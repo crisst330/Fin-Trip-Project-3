@@ -51,7 +51,7 @@ export default function LoginPage() {
       }
       // After successfully logging in, update the shared UserContext
       setUser(data);
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       console.error("Login error:", error);
       setErrorMessage("Cannot connect to the server at this time.");

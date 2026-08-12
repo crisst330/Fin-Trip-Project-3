@@ -1,0 +1,144 @@
+.user-dashboard {
+  padding: 2rem 0 3rem;
+}
+
+.dashboard-hero {
+  background-color: #3f438c;
+  color: #ffffff;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-welcome {
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
+.dashboard-hero h1 {
+  margin-bottom: 0.75rem;
+}
+
+.dashboard-hero-text {
+  max-width: 650px;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.dashboard-primary-button {
+  background-color: #658c76;
+  border-color: #658c76;
+  color: #000000;
+}
+
+.dashboard-primary-button:hover,
+.dashboard-primary-button:focus {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #3f438c;
+}
+
+.dashboard-secondary-button {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #3f438c;
+}
+
+.dashboard-secondary-button:hover,
+.dashboard-secondary-button:focus {
+  background-color: #f2f2f2;
+  border-color: #f2f2f2;
+  color: #3f438c;
+}
+
+.dashboard-section {
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-section-heading {
+  margin-bottom: 1rem;
+}
+
+.dashboard-stat-card {
+  border: 1px solid #d9d9d9;
+  border-radius: 0.75rem;
+  height: 100%;
+}
+
+.dashboard-stat-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dashboard-stat-value {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.dashboard-stat-purple {
+  border-top: 0.4rem solid #3f438c;
+}
+
+.dashboard-stat-green {
+  border-top: 0.4rem solid #658c76;
+}
+
+.dashboard-stat-tan {
+  border-top: 0.4rem solid #a67c58;
+}
+
+.dashboard-stat-red {
+  border-top: 0.4rem solid #bf5454;
+}
+
+.dashboard-trip-card {
+  border: 1px solid #d9d9d9;
+  border-radius: 0.75rem;
+  height: 100%;
+}
+
+.dashboard-trip-card .card-title {
+  color: #3f438c;
+}
+
+.dashboard-view-button {
+  border-color: #3f438c;
+  color: #3f438c;
+}
+
+.dashboard-view-button:hover,
+.dashboard-view-button:focus {
+  background-color: #3f438c;
+  border-color: #3f438c;
+  color: #ffffff;
+}
+
+.dashboard-error {
+  color: #733917;
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .user-dashboard {
+    padding-top: 1rem;
+  }
+
+  .dashboard-hero {
+    padding: 1.5rem;
+  }
+
+  .dashboard-actions {
+    flex-direction: column;
+  }
+
+  .dashboard-actions .btn {
+    width: 100%;
+  }
+}

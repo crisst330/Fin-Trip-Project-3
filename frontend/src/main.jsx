@@ -7,10 +7,12 @@ import "./index.css";
 
 import BaseTemplate from "./pages/BaseTemplate.jsx";
 import DashboardPage from "./pages/DashboardPage.jsx";
+import UserDashboardPage from "./pages/UserDashboardPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import TripDetailPage from "./pages/TripDetailPage.jsx";
+import TripsPage from "./pages/TripsPage.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -18,6 +20,8 @@ createRoot(document.getElementById("root")).render(
       <BaseTemplate>
         <Routes>
           <Route path="/" element={<DashboardPage />} />
+          <Route path="/dashboard" element={<UserDashboardPage />} />
+          <Route path="/trips" element={<TripsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
