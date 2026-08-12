@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router";
 import EditTripForm from "./EditTripForm.jsx";
+import { formatCurrency } from "../utils/currency.js";
 
 export default function TripCard({ trip, reloadTrips }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -49,7 +50,7 @@ export default function TripCard({ trip, reloadTrips }) {
           <strong>Travelers:</strong> {trip.travelers}
         </Card.Text>
         <Card.Text>
-          <strong>Budget Cap:</strong> ${trip.budgetCap.toFixed(2)}
+          <strong>Budget Cap:</strong> {formatCurrency(trip.budgetCap)}
         </Card.Text>
         {errorMessage && <p className="text-danger">{errorMessage}</p>}
 
