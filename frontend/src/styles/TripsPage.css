@@ -1,0 +1,36 @@
+.trips-page {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+}
+
+.trips-page > h1 {
+  margin-bottom: 0.5rem;
+  color: #3f438c;
+}
+
+.trips-page > p {
+  margin-bottom: 2rem;
+}
+
+.trips-create-section {
+  margin-bottom: 3rem;
+}
+
+.trips-create-section h2,
+.trips-saved-section h2 {
+  margin-bottom: 1.25rem;
+  color: #3f438c;
+}
+
+.trips-saved-section {
+  padding-top: 2rem;
+  border-top: 1px solid #d9d9d9;
+}
+
+@media (max-width: 767px) {
+  .trips-page {
+    padding: 1rem;
+  }
+}

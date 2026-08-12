@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
 import BaseTemplate from "./pages/BaseTemplate.jsx";
-import DashboardPage from "./pages/DashboardPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
 import UserDashboardPage from "./pages/UserDashboardPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
@@ -19,7 +19,7 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <BaseTemplate>
         <Routes>
-          <Route path="/" element={<DashboardPage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/dashboard" element={<UserDashboardPage />} />
           <Route path="/trips" element={<TripsPage />} />
           <Route path="/about" element={<AboutPage />} />

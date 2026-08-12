@@ -1,16 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
 import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router";
 
-import heroImg from "../../images/financetrip.jpg";
 import CreateTripForm from "../components/CreateTripForm.jsx";
 import TripCard from "../components/TripCard.jsx";
 import { useUser } from "../context/UserContext.jsx";
 
-import "./DashboardPage.css";
+import "../styles/TripsPage.css";
 
-export default function DashboardPage() {
+export default function TripsPage() {
   const { user } = useUser();
 
   const [trips, setTrips] = useState([]);
@@ -28,7 +25,6 @@ export default function DashboardPage() {
 
     try {
       const response = await fetch("/api/trips");
-
       const data = await response.json();
 
       if (!response.ok) {
@@ -52,55 +48,61 @@ export default function DashboardPage() {
 
   if (!user) {
     return (
-      <section className="hero-section">
-        <img src={heroImg} alt="World map with money" className="hero-bg-img" />
+      <section className="trips-page">
+        <h1>My Trips</h1>
 
-        <h1>Welcome to FinTrip</h1>
-
-        <p>
-          Plan trips by comparing projected expenses against a defined budget
-          you set.
-        </p>
-
-        <div className="mt-3">
-          <Button as={Link} to="/login" className="me-2">
-            Log In
-          </Button>
-
-          <Button as={Link} to="/register" variant="secondary">
-            Create Account
-          </Button>
-        </div>
+        <Alert variant="warning" role="alert">
+          Please log in to view and manage your trips.
+        </Alert>
       </section>
     );
   }
 
   return (
-    <section>
-      <h1>My Trips</h1>
+    <main className="trips-page">
+      <header className="trips-page-header">
+        <h1>My Trips</h1>
 
-      <p>
-        Welcome, <strong>{user.name}</strong>. Create a trip or manage one of
-        your saved trips.
-      </p>
+        <p>
+          Create a new trip or manage one of your saved travel plans.
+        </p>
+      </header>
 
-      {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-
-      <CreateTripForm reloadTrips={reloadTrips} />
-
-      <hr />
-
-      <h2>Saved Trips</h2>
-
-      {isLoading ? (
-        <p>Loading trips...</p>
-      ) : trips.length === 0 ? (
-        <p>You have not created any trips yet.</p>
-      ) : (
-        trips.map((trip) => (
-          <TripCard key={trip._id} trip={trip} reloadTrips={reloadTrips} />
-        ))
+      {errorMessage && (
+        <Alert variant="danger" role="alert">
+          {errorMessage}
+        </Alert>
       )}
-    </section>
+
+      <section
+        className="trips-create-section"
+        aria-label="Create a new trip"
+      >
+        <CreateTripForm reloadTrips={reloadTrips} />
+      </section>
+
+      <section
+        className="trips-saved-section"
+        aria-labelledby="saved-trips-heading"
+      >
+        <h2 id="saved-trips-heading">Saved Trips</h2>
+
+        {isLoading ? (
+          <p>Loading trips...</p>
+        ) : trips.length === 0 ? (
+          <p>
+            You have not created any trips yet. Create your first trip above.
+          </p>
+        ) : (
+          trips.map((trip) => (
+            <TripCard
+              key={trip._id}
+              trip={trip}
+              reloadTrips={reloadTrips}
+            />
+          ))
+        )}
+      </section>
+    </main>
   );
 }

@@ -1,0 +1,187 @@
+.home-page {
+  width: 100%;
+}
+
+/* -----------------------------
+   Hero Section
+------------------------------ */
+.home-hero {
+  position: relative;
+
+  width: 100vw;
+  height: calc(100vh - 76px);
+  min-height: 620px;
+
+  margin-left: calc(-50vw + 50%);
+
+  overflow: hidden;
+}
+
+.home-hero-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 0;
+}
+
+/* Preserve the original image colors while
+   darkening it enough for readable text. */
+.home-hero::after {
+  position: absolute;
+  inset: 0;
+
+  content: "";
+
+  background: rgba(0, 0, 0, 0.45);
+
+  z-index: 1;
+}
+
+/* -----------------------------
+   Hero Content
+------------------------------ */
+.home-hero-overlay {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 2rem;
+
+  color: var(--white);
+
+  text-align: center;
+}
+
+.home-hero-overlay h1 {
+  max-width: 40rem;
+
+  margin-bottom: 0.75rem;
+
+  color: var(--white);
+
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+}
+
+.home-hero-overlay p {
+  max-width: 40rem;
+
+  margin: 0 auto 1.5rem;
+
+  color: var(--white);
+
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+}
+
+/* -----------------------------
+   Hero Actions
+------------------------------ */
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.home-primary-button {
+  padding: 0.7rem 1.35rem;
+
+  background-color: var(--green);
+  border-color: var(--green);
+
+  color: var(--white);
+
+  font-weight: 700;
+}
+
+.home-primary-button:hover,
+.home-primary-button:focus-visible {
+  background-color: var(--green-dark);
+  border-color: var(--green-dark);
+
+  color: var(--white);
+}
+
+.home-primary-button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+
+  box-shadow: none;
+}
+
+.home-secondary-button {
+  padding: 0.7rem 1.35rem;
+
+  background-color: transparent;
+  border: 2px solid var(--white);
+
+  color: var(--white);
+
+  font-weight: 700;
+}
+
+.home-secondary-button:hover,
+.home-secondary-button:focus-visible {
+  background-color: var(--white);
+  border-color: var(--white);
+
+  color: var(--military-green);
+}
+
+.home-secondary-button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+
+  box-shadow: none;
+}
+
+/* -----------------------------
+   Responsive Layout
+------------------------------ */
+@media (max-width: 991px) {
+  .home-hero {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-hero {
+    height: auto;
+    min-height: 520px;
+  }
+
+  .home-hero-overlay {
+    min-height: 520px;
+    padding: 2rem 1.25rem;
+  }
+
+  .home-hero-overlay h1,
+  .home-hero-overlay p {
+    max-width: 100%;
+  }
+
+  .home-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-actions .btn {
+    width: 100%;
+    max-width: 260px;
+  }
+}
