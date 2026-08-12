@@ -17,6 +17,7 @@ export default function LoginPage() {
 
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setSubmission] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -84,12 +85,20 @@ export default function LoginPage() {
           <Form.Label>Password</Form.Label>
 
           <Form.Control
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             value={credentials.password}
             onChange={handleChange}
             required
           />
+
+          <Button
+            type="button"
+            variant="link"
+            onClick={() => setShowPassword(!showPassword)}
+            >
+            {showPassword ? "Hide Password" : "Show Password"}
+            </Button>
         </Form.Group>
 
         <Button type="submit" disabled={isSubmitting}>

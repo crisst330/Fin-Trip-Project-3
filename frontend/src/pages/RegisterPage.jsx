@@ -15,6 +15,7 @@ export default function RegisterPage() {
 
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -93,12 +94,19 @@ export default function RegisterPage() {
           <Form.Label>Password</Form.Label>
 
           <Form.Control
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
           />
+          <Button
+            typeof="button"
+            variant="link"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? "Hide Password" : "Show Password"}
+          </Button>
         </Form.Group>
 
         <Button type="submit" disabled={isSubmitting}>
