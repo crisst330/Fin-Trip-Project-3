@@ -16,10 +16,21 @@ body {
 }
 
 body {
-  font-family: "Cinzel", serif;
+  font-family: "Spinnaker", sans-serif;
   color: var(--military-green);
   background: var(--white);
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
 
 a {
   color: var(--green);
