@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import PropTypes from "prop-types";
 import "./ExpenseItem.css";
+import { formatCurrency } from "../utils/currency.js";
 
 export default function ExpenseItem({ item, tripId, reloadExpenses }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -111,7 +112,7 @@ export default function ExpenseItem({ item, tripId, reloadExpenses }) {
         <div>
           <h4 className="expense-title">{item.title}</h4>
           <p>Category: {item.category}</p>
-          <p className="expense-cost">Cost: ${item.cost.toFixed(2)}</p>
+          <p className="expense-cost">Cost: {formatCurrency(item.cost)}</p>
           <p>
             Status:{" "}
             <span
