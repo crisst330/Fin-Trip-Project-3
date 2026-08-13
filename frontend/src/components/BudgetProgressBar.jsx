@@ -16,11 +16,13 @@ export default function BudgetProgressBar({ spent, budgetCap }) {
   }
 
   return (
-    <ProgressBar
-      now={percentage}
-      aria-label={`${Math.round(percentage)}%`}
-      variant={variant}
-    />
+    <div role="group" aria-label={`${Math.round(percentage)}% of budget used`}>
+      <ProgressBar
+        now={percentage}
+        label={`${Math.round(percentage)}%`}
+        variant={variant}
+      />
+    </div>
   );
 }
 

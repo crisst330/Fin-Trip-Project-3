@@ -1,14 +1,17 @@
 .per-person-highlight {
   display: inline-block;
-
   padding: 0.25rem 0.6rem;
-
   font-family: "Courier New", Courier, monospace;
   font-weight: 700;
-
-  color: var(--green-dark);
-
+  color: var(--forest-green-dark);
   background: rgb(46 139 87 / 12%);
-
   border-radius: var(--radius-sm);
+}
+.btn-outline-success {
+  color: var(--forest-green-dark);
+  border-color: var(--forest-green-dark);
+}
+.btn-outline-success:hover {
+  background-color: var(--forest-green-dark);
+  border-color: var(--forest-green-dark);
 }
