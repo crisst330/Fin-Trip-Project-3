@@ -22,11 +22,11 @@ export default function BudgetSummary({ trip }) {
         </p>
 
         <p>
-          <strong>Spent:</strong> ${formatCurrency(spent)}
+          <strong>Spent:</strong> {formatCurrency(spent)}
         </p>
 
         <p>
-          <strong>Remaining:</strong> ${formatCurrency(remaining)}
+          <strong>Remaining:</strong> {formatCurrency(remaining)}
         </p>
 
         <BudgetProgressBar spent={spent} budgetCap={trip.budgetCap} />
