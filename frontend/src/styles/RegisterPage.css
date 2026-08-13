@@ -9,7 +9,6 @@
   background-color: var(--offwhite);
 }
 
-
 .register-card {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -27,7 +26,6 @@
 
   box-shadow: var(--shadow-lg);
 }
-
 
 .register-visual {
   position: relative;
@@ -51,13 +49,12 @@
 
   content: "";
 
-  background:
-    linear-gradient(
-      90deg,
-      rgb(63 67 140 / 92%) 0%,
-      rgb(63 67 140 / 70%) 45%,
-      rgb(63 67 140 / 20%) 100%
-    );
+  background: linear-gradient(
+    90deg,
+    rgb(63 67 140 / 92%) 0%,
+    rgb(63 67 140 / 70%) 45%,
+    rgb(63 67 140 / 20%) 100%
+  );
 }
 
 .register-visual-overlay {
@@ -110,7 +107,6 @@
   line-height: 1.65;
 }
 
-
 .register-form-panel {
   display: flex;
   flex-direction: column;
@@ -146,7 +142,6 @@
   line-height: 1.6;
 }
 
-
 .register-form-panel .form-label {
   color: var(--text-primary);
   font-weight: 600;
@@ -172,7 +167,6 @@
   box-shadow: none;
 }
 
-
 .register-password-hint {
   margin: var(--space-xs) 0 0;
 
@@ -180,7 +174,6 @@
 
   font-size: 0.85rem;
 }
-
 
 .register-password-toggle {
   margin-top: var(--space-xs);
@@ -208,7 +201,6 @@
 
   box-shadow: none;
 }
-
 
 .register-submit-button {
   min-width: 150px;
@@ -247,7 +239,6 @@
   opacity: 0.65;
 }
 
-
 .register-form-panel .alert-danger {
   color: var(--text-primary);
 
@@ -255,7 +246,6 @@
 
   border-color: var(--red);
 }
-
 
 @media (max-width: 991px) {
   .register-card {

@@ -57,13 +57,12 @@
 
   content: "";
 
-  background:
-    linear-gradient(
-      90deg,
-      rgb(63 67 140 / 92%) 0%,
-      rgb(63 67 140 / 70%) 45%,
-      rgb(63 67 140 / 20%) 100%
-    );
+  background: linear-gradient(
+    90deg,
+    rgb(63 67 140 / 92%) 0%,
+    rgb(63 67 140 / 70%) 45%,
+    rgb(63 67 140 / 20%) 100%
+  );
 }
 
 .login-visual-overlay {

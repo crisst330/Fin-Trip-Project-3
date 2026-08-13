@@ -63,9 +63,7 @@ export default function TripsPage() {
       <header className="trips-page-header">
         <h1>My Trips</h1>
 
-        <p>
-          Create a new trip or manage one of your saved travel plans.
-        </p>
+        <p>Create a new trip or manage one of your saved travel plans.</p>
       </header>
 
       {errorMessage && (
@@ -74,10 +72,7 @@ export default function TripsPage() {
         </Alert>
       )}
 
-      <section
-        className="trips-create-section"
-        aria-label="Create a new trip"
-      >
+      <section className="trips-create-section" aria-label="Create a new trip">
         <CreateTripForm reloadTrips={reloadTrips} />
       </section>
 
@@ -95,11 +90,7 @@ export default function TripsPage() {
           </p>
         ) : (
           trips.map((trip) => (
-            <TripCard
-              key={trip._id}
-              trip={trip}
-              reloadTrips={reloadTrips}
-            />
+            <TripCard key={trip._id} trip={trip} reloadTrips={reloadTrips} />
           ))
         )}
       </section>

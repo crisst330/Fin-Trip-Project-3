@@ -38,11 +38,7 @@ export default function NavigationBar() {
       aria-label="Main navigation"
     >
       <Container>
-        <Navbar.Brand
-          as={Link}
-          to="/"
-          aria-current={isCurrentPage("/")}
-        >
+        <Navbar.Brand as={Link} to="/" aria-current={isCurrentPage("/")}>
           FinTrip
         </Navbar.Brand>
 

@@ -160,15 +160,12 @@
 ------------------------------ */
 
 @media (max-width: 991px) {
-
   .home-hero {
     min-height: 560px;
   }
-
 }
 
 @media (max-width: 767px) {
-
   .home-hero {
     height: auto;
     min-height: 520px;
@@ -194,5 +191,4 @@
     width: 100%;
     max-width: 260px;
   }
-
 }

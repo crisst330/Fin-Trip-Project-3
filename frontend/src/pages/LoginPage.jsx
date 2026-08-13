@@ -65,16 +65,9 @@ export default function LoginPage() {
 
   return (
     <main className="login-page">
-      <section
-        className="login-card"
-        aria-labelledby="login-heading"
-      >
+      <section className="login-card" aria-labelledby="login-heading">
         <div className="login-visual">
-          <img
-            src={loginImage}
-            alt=""
-            className="login-visual-image"
-          />
+          <img src={loginImage} alt="" className="login-visual-image" />
 
           <div className="login-visual-overlay">
             <p className="login-brand">FinTrip</p>
@@ -137,9 +130,7 @@ export default function LoginPage() {
                 variant="link"
                 className="login-password-toggle"
                 aria-pressed={showPassword}
-                aria-label={
-                  showPassword ? "Hide password" : "Show password"
-                }
+                aria-label={showPassword ? "Hide password" : "Show password"}
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? "Hide Password" : "Show Password"}

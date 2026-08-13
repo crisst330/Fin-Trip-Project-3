@@ -54,6 +54,7 @@ export default function CreateExpenseForm({ tripId, reloadExpenses }) {
       <h3>Create New Expense</h3>
 
       <Form.Group className="mb-3" controlId="expenseCategory">
+        <Form.Label>Category</Form.Label>
         <Form.Select
           value={item.category}
           onChange={(e) =>
@@ -72,6 +73,7 @@ export default function CreateExpenseForm({ tripId, reloadExpenses }) {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="expenseTitle">
+        <Form.Label>Title</Form.Label>
         <Form.Control
           type="text"
           value={item.title}
@@ -86,6 +88,7 @@ export default function CreateExpenseForm({ tripId, reloadExpenses }) {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="expenseCost">
+        <Form.Label>Cost</Form.Label>
         <Form.Control
           type="number"
           value={item.cost}
@@ -100,6 +103,7 @@ export default function CreateExpenseForm({ tripId, reloadExpenses }) {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="expenseStatus">
+        <Form.Label>Status</Form.Label>
         <Form.Select
           value={item.status}
           onChange={(e) =>

@@ -77,16 +77,9 @@ export default function RegisterPage() {
 
   return (
     <main className="register-page">
-      <section
-        className="register-card"
-        aria-labelledby="register-heading"
-      >
+      <section className="register-card" aria-labelledby="register-heading">
         <div className="register-visual">
-          <img
-            src={registerImage}
-            alt=""
-            className="register-visual-image"
-          />
+          <img src={registerImage} alt="" className="register-visual-image" />
 
           <div className="register-visual-overlay">
             <p className="register-brand">FinTrip</p>
@@ -104,10 +97,7 @@ export default function RegisterPage() {
         </div>
 
         <div className="register-form-panel">
-          <div
-            className="register-heading-accent"
-            aria-hidden="true"
-          />
+          <div className="register-heading-accent" aria-hidden="true" />
 
           <h1 id="register-heading">Create Your Account</h1>
 
@@ -122,10 +112,7 @@ export default function RegisterPage() {
           )}
 
           <Form onSubmit={handleSubmit}>
-            <Form.Group
-              className="mb-3"
-              controlId="register-name"
-            >
+            <Form.Group className="mb-3" controlId="register-name">
               <Form.Label>Name</Form.Label>
 
               <Form.Control
@@ -139,10 +126,7 @@ export default function RegisterPage() {
               />
             </Form.Group>
 
-            <Form.Group
-              className="mb-3"
-              controlId="register-email"
-            >
+            <Form.Group className="mb-3" controlId="register-email">
               <Form.Label>Email</Form.Label>
 
               <Form.Control
@@ -156,10 +140,7 @@ export default function RegisterPage() {
               />
             </Form.Group>
 
-            <Form.Group
-              className="mb-4"
-              controlId="register-password"
-            >
+            <Form.Group className="mb-4" controlId="register-password">
               <Form.Label>Password</Form.Label>
 
               <Form.Control
@@ -187,9 +168,7 @@ export default function RegisterPage() {
                 variant="link"
                 className="register-password-toggle"
                 aria-pressed={showPassword}
-                aria-label={
-                  showPassword ? "Hide password" : "Show password"
-                }
+                aria-label={showPassword ? "Hide password" : "Show password"}
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? "Hide Password" : "Show Password"}
@@ -201,9 +180,7 @@ export default function RegisterPage() {
               className="register-submit-button"
               disabled={isSubmitting}
             >
-              {isSubmitting
-                ? "Creating an account..."
-                : "Create Account"}
+              {isSubmitting ? "Creating an account..." : "Create Account"}
             </Button>
           </Form>
         </div>

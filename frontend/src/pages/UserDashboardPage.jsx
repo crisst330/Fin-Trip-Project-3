@@ -90,11 +90,7 @@ export default function UserDashboardPage() {
           </p>
 
           <div className="dashboard-actions">
-            <Button
-              as={Link}
-              to="/trips"
-              className="dashboard-primary-button"
-            >
+            <Button as={Link} to="/trips" className="dashboard-primary-button">
               View My Trips
             </Button>
 
@@ -196,9 +192,7 @@ export default function UserDashboardPage() {
               <Card.Body>
                 <Card.Title as="h3">Plan Trips</Card.Title>
 
-                <Card.Text>
-                  Create and manage your travel itinerary.
-                </Card.Text>
+                <Card.Text>Create and manage your travel itinerary.</Card.Text>
 
                 <Button
                   as={Link}
@@ -213,11 +207,7 @@ export default function UserDashboardPage() {
 
           <Col lg={3} sm={6} xs={12}>
             <Card className="dashboard-feature-card">
-              <img
-                src={walletImg}
-                alt=""
-                className="dashboard-feature-image"
-              />
+              <img src={walletImg} alt="" className="dashboard-feature-image" />
 
               <Card.Body>
                 <Card.Title as="h3">Track Budget</Card.Title>
@@ -330,8 +320,7 @@ export default function UserDashboardPage() {
                     </Card.Text>
 
                     <Card.Text>
-                      <strong>Budget:</strong>{" "}
-                      {formatCurrency(trip.budgetCap)}
+                      <strong>Budget:</strong> {formatCurrency(trip.budgetCap)}
                     </Card.Text>
 
                     <Card.Text>

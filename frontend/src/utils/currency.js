@@ -3,10 +3,10 @@
 // This function can be used in any component that needs to display currency values
 // It uses the browsers built-in internationalization API to format the number as currency
 export function formatCurrency(value) {
-    return Number(value).toLocaleString("en-US", {
-        style: "currency",
-        currency: "USD",
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-    });
+  return Number(value).toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 }

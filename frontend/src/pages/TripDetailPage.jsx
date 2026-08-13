@@ -57,7 +57,7 @@ export default function TripDetailPage() {
 
               <Button
                 type="button"
-                variant="outline-primary"
+                variant="outline-success"
                 onClick={() => setShowEditForm(true)}
               >
                 Edit Trip
@@ -83,7 +83,7 @@ export default function TripDetailPage() {
             <p>
               <strong>Per-Person Cost:</strong>{" "}
               <span className="per-person-highlight">
-                ${formatCurrency(perPersonCost)}
+                {formatCurrency(perPersonCost)}
               </span>
             </p>
           </div>
