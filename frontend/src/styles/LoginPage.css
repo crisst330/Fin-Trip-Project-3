@@ -88,17 +88,18 @@
   font-weight: 700;
 }
 
-.login-visual-overlay h2 {
+.login-visual-overlay .login-tagline {
   margin-bottom: var(--space-lg);
 
   color: var(--white);
 
+  font-family: var(--font-heading);
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.05;
 }
 
-.login-visual-overlay h2 span {
+.login-visual-overlay .login-tagline span {
   display: block;
 
   color: var(--sage-green);
@@ -285,7 +286,7 @@
     padding: 2.5rem;
   }
 
-  .login-visual-overlay h2 {
+  .login-visual-overlay .login-tagline {
     font-size: 2.4rem;
   }
 
@@ -312,7 +313,7 @@
     padding: var(--space-xl);
   }
 
-  .login-visual-overlay h2 {
+  .login-visual-overlay .login-tagline {
     font-size: var(--text-2xl);
   }
 

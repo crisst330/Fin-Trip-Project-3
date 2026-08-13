@@ -49,7 +49,7 @@ export default function TripsPage() {
   if (!user) {
     return (
       <section className="trips-page">
-        <h1>My Trips</h1>
+        <h2 className="trips-guest-heading">My Trips</h2>
 
         <Alert variant="warning" role="alert">
           Please log in to view and manage your trips.

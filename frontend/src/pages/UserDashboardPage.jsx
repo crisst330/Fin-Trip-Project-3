@@ -80,9 +80,9 @@ export default function UserDashboardPage() {
         <img src={heroBanner} alt="" className="dashboard-hero-image" />
 
         <div className="dashboard-hero-content">
-          <p className="dashboard-welcome">
+          <h1 className="dashboard-welcome">
             Welcome back, <strong>{user?.name}</strong>!
-          </p>
+          </h1>
 
           <p className="dashboard-hero-text">
             Your travel plans are all in one place. Track budgets, monitor

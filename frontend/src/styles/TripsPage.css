@@ -5,8 +5,10 @@
   padding: var(--space-xl) var(--space-xl) var(--space-2xl);
 }
 
-.trips-page > h1 {
+.trips-page > .trips-guest-heading {
+  margin-top: 0.67em;
   margin-bottom: var(--space-xs);
+  font-size: 2em;
   color: var(--navy);
 }
 

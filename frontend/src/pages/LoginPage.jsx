@@ -72,10 +72,10 @@ export default function LoginPage() {
           <div className="login-visual-overlay">
             <p className="login-brand">FinTrip</p>
 
-            <h2>
+            <p className="login-tagline">
               Plan More.
               <span> Worry Less.</span>
-            </h2>
+            </p>
 
             <p>
               Keep your trips, budgets, and expenses organized in one place.

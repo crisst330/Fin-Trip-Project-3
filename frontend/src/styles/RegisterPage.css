@@ -80,17 +80,18 @@
   font-weight: 700;
 }
 
-.register-visual-overlay h2 {
+.register-visual-overlay .register-tagline {
   margin-bottom: var(--space-lg);
 
   color: var(--white);
 
+  font-family: var(--font-heading);
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.05;
 }
 
-.register-visual-overlay h2 span {
+.register-visual-overlay .register-tagline span {
   display: block;
 
   color: var(--sage-green);
@@ -261,7 +262,7 @@
     padding: 2.5rem;
   }
 
-  .register-visual-overlay h2 {
+  .register-visual-overlay .register-tagline {
     font-size: 2.4rem;
   }
 
@@ -288,7 +289,7 @@
     padding: var(--space-xl);
   }
 
-  .register-visual-overlay h2 {
+  .register-visual-overlay .register-tagline {
     font-size: var(--text-2xl);
   }
 

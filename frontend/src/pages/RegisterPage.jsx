@@ -84,10 +84,10 @@ export default function RegisterPage() {
           <div className="register-visual-overlay">
             <p className="register-brand">FinTrip</p>
 
-            <h2>
+            <p className="register-tagline">
               Start Planning.
               <span> Travel Smarter.</span>
-            </h2>
+            </p>
 
             <p>
               Create your FinTrip account and keep your trips, budgets, and
