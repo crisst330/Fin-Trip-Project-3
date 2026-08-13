@@ -18,7 +18,7 @@ export default function BudgetSummary({ trip }) {
         <Card.Title>Budget Summary</Card.Title>
 
         <p>
-          <strong>Budget Cap:</strong> ${formatCurrency(trip.budgetCap)}
+          <strong>Budget Cap:</strong> {formatCurrency(trip.budgetCap)}
         </p>
 
         <p>

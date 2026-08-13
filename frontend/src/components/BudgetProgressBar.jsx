@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import ProgressBar from "react-bootstrap/ProgressBar";
 
 // In plain english, this component must recieve two numeric values:
 // amount spent and budget cap.
@@ -15,13 +14,21 @@ export default function BudgetProgressBar({ spent, budgetCap }) {
     variant = "warning";
   }
 
+  const rounded = Math.round(percentage);
+
   return (
-    <div role="group" aria-label={`${Math.round(percentage)}% of budget used`}>
-      <ProgressBar
-        now={percentage}
-        label={`${Math.round(percentage)}%`}
-        variant={variant}
-      />
+    <div className="progress">
+      <div
+        role="progressbar"
+        aria-label={`${rounded}% of budget used`}
+        aria-valuenow={rounded}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        className={`progress-bar bg-${variant}`}
+        style={{ width: `${percentage}%` }}
+      >
+        {rounded}%
+      </div>
     </div>
   );
 }
