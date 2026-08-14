@@ -254,6 +254,7 @@ No axios, no Mongoose, no CORS package — the Vite dev proxy handles requests t
 
 ## Project Structure
 
+```text
 Fin-Trip-Project-3/
 ├── backend.js
 ├── package.json
@@ -264,56 +265,61 @@ Fin-Trip-Project-3/
 ├── .gitignore
 │
 ├── config/
-│ └── passport.js
+│   └── passport.js
 │
 ├── middleware/
-│ └── auth.js
+│   └── auth.js
 │
 ├── models/
-│ ├── TripsDB.js
-│ └── UsersDB.js
+│   ├── TripsDB.js
+│   └── UsersDB.js
 │
 ├── routes/
-│ ├── Auth.js
-│ ├── Trips.js
-│ └── Expenses.js
+│   ├── Auth.js
+│   ├── Trips.js
+│   └── Expenses.js
 │
-├── frontend/
-│ ├── index.html
-│ ├── package.json
-│ ├── package-lock.json
-│ ├── vite.config.js
-│ ├── eslint.config.js
-│ ├── images/
-│ ├── public/
-│ ├── dist/ (generated after build)
-│ └── src/
-│ ├── main.jsx
-│ ├── index.css
-│ ├── context/
-│ │ └── UserContext.jsx
-│ ├── components/
-│ │ ├── AddExpenseForm.jsx / .css
-│ │ ├── BudgetProgressBar.jsx
-│ │ ├── BudgetSummary.jsx
-│ │ ├── CreateTripForm.jsx
-│ │ ├── EditTripForm.jsx
-│ │ ├── ExpenseItem.jsx / .css
-│ │ ├── ExpenseList.jsx / .css
-│ │ ├── NavigationBar.jsx / .css
-│ │ └── TripCard.jsx
-│ ├── pages/
-│ │ ├── AboutPage.jsx / .css
-│ │ ├── BaseTemplate.jsx
-│ │ ├── HomePage.jsx / .css
-│ │ ├── UserDashboardPage.jsx / .css
-│ │ ├── LoginPage.jsx / .css
-│ │ ├── RegisterPage.jsx / .css
-│ │ ├── TripsPage.jsx / .css
-│ │ └── TripDetailPage.jsx / .css
-│ └── data/
-│ └── TripInfo.json
-
+└── frontend/
+    ├── index.html
+    ├── package.json
+    ├── package-lock.json
+    ├── vite.config.js
+    ├── eslint.config.js
+    ├── images/
+    ├── public/
+    ├── dist/ (generated after build)
+    │
+    └── src/
+        ├── main.jsx
+        ├── index.css
+        │
+        ├── context/
+        │   └── UserContext.jsx
+        │
+        ├── components/
+        │   ├── AddExpenseForm.jsx / .css
+        │   ├── BudgetProgressBar.jsx
+        │   ├── BudgetSummary.jsx
+        │   ├── CreateTripForm.jsx
+        │   ├── EditTripForm.jsx
+        │   ├── ExpenseItem.jsx / .css
+        │   ├── ExpenseList.jsx / .css
+        │   ├── NavigationBar.jsx / .css
+        │   └── TripCard.jsx
+        │
+        ├── pages/
+        │   ├── AboutPage.jsx / .css
+        │   ├── BaseTemplate.jsx
+        │   ├── HomePage.jsx / .css
+        │   ├── UserDashboardPage.jsx / .css
+        │   ├── LoginPage.jsx / .css
+        │   ├── RegisterPage.jsx / .css
+        │   ├── TripsPage.jsx / .css
+        │   └── TripDetailPage.jsx / .css
+        │
+        └── data/
+            └── TripInfo.json
+```
 ---
 
 ## Instructions to Build
