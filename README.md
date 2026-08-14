@@ -126,7 +126,8 @@ The application is also fully operable via keyboard alone, with visible focus in
 
 A structured usability study was conducted with three participants per project member, following the course's provided template: task-based scripts, demographic questions, Likert-scale post-task questionnaires, and recorded sessions.
 
-Full report: **[link to usability study report]**
+Full report for Priamos: **[link to usability study report]**
+Full report for Timothy: **[[link to usability study report](https://docs.google.com/document/d/1AhJFcY50D9o8Ct6wNkRAz_eStci-m4LxFBQMnkLLXZI/edit?usp=sharing)]**
 
 Key findings implemented in this iteration:
 
