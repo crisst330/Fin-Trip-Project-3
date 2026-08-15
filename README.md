@@ -418,7 +418,6 @@ AI assistance for the authentication system, trip management features, budget vi
 - generating a color palette from application imagery and translating it into CSS custom properties
 - redesigning the homepage, login, and register pages, including layout, typography pairing, and visual hierarchy
 - refining comments, documentation wording, and project organization for readability and maintainability
-- assisting with Render deployment, production configuration, MongoDB database seeding, and deployment troubleshooting
 - generating AI-created images used throughout the site for hero banners, page backgrounds, and card imagery, later incorporated into the design
 
 Additional development and deployment assistance included:
@@ -464,6 +463,7 @@ AI assistance for the expense management system, trip-level backend routes, data
 - helping run and interpret axe DevTools accessibility scans across every application route, and working through the resulting issues together: insufficient color-contrast ratios on buttons, status badges, and highlighted text; a missing accessible name on an ARIA progress bar (including diagnosing that a UI library component was not forwarding the `aria-label` prop to its rendered DOM element, and rewriting the component with plain semantic markup instead); and missing form labels on the expense-creation form's category, title, cost, and status fields
 - assisting with corrections to heading hierarchy across the application's pages so that headings appear in proper semantic order (single `h1` per page, no out-of-sequence or skipped heading levels) for screen reader navigation
 - refining comments, documentation wording, and project organization for readability and maintainability
+- assisting with Render deployment, production configuration, MongoDB database seeding, and deployment troubleshooting
 
 GitHub Copilot was used separately, in-editor, for:
 
