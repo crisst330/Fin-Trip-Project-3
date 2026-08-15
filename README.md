@@ -51,9 +51,7 @@ This project was developed as part of CS 5610 Web Development at Northeastern Un
 
 ## Screenshot
 
-![FinTrip application thumbnail](frontend/images/Project3Thumbnail.png)
-
-*[Replace with the final-project thumbnail, 500x500 PNG, before Google Form submission]*
+![FinTrip application thumbnail](frontend/images/Project4Thumbnail.png)
 
 ---
 
@@ -63,15 +61,15 @@ FinTrip's redesign is built on a warm, travel-inspired color palette generated f
 
 **Color Palette**
 
-| Variable | Hex | Use |
-|---|---|---|
-| `--navy` | `#3F438C` | Primary accents, headings |
-| `--forest-green` | `#2E8B57` | Primary actions, links |
+| Variable              | Hex       | Use                                                                         |
+| --------------------- | --------- | --------------------------------------------------------------------------- |
+| `--navy`              | `#3F438C` | Primary accents, headings                                                   |
+| `--forest-green`      | `#2E8B57` | Primary actions, links                                                      |
 | `--forest-green-dark` | `#006400` | Primary action hover/active states, high-contrast text on light backgrounds |
-| `--tan` | `#A67C58` | Secondary accents |
-| `--gold` | `#DAA520` | Status highlights |
-| `--military-green` | `#2F4F4F` | Footer, dark surfaces |
-| `--background` | `#FFFAF0` | Page background |
+| `--tan`               | `#A67C58` | Secondary accents                                                           |
+| `--gold`              | `#DAA520` | Status highlights                                                           |
+| `--military-green`    | `#2F4F4F` | Footer, dark surfaces                                                       |
+| `--background`        | `#FFFAF0` | Page background                                                             |
 
 The palette was derived from the application's hero photography using Adobe Express's color palette tool, then refined into the CSS custom properties above and adjusted where necessary to meet WCAG AA contrast thresholds (see [Accessibility](#accessibility)).
 
@@ -99,17 +97,17 @@ Following the four core design principles covered in class:
 
 ## Accessibility
 
-Every route in the application was tested with the **axe DevTools** and **Lighthouse** Chrome extensions and iterated on until reaching zero automatically-detected errors:
+Every route in the application was tested with the **axe DevTools** Chrome extensions and iterated on until reaching zero automatically-detected errors:
 
-| Route | axe DevTools Result |
-|---|---|
-| `/` | 0 issues |
-| `/about` | 0 issues |
-| `/login` | 0 issues |
-| `/register` | 0 issues |
-| `/dashboard` | 0 issues |
-| `/trips` | 0 issues |
-| `/trips/:id` | 0 issues |
+| Route        | axe DevTools Result |
+| ------------ | ------------------- |
+| `/`          | 0 issues            |
+| `/about`     | 0 issues            |
+| `/login`     | 0 issues            |
+| `/register`  | 0 issues            |
+| `/dashboard` | 0 issues            |
+| `/trips`     | 0 issues            |
+| `/trips/:id` | 0 issues            |
 
 Issues identified and resolved during this pass included:
 
@@ -126,8 +124,8 @@ The application is also fully operable via keyboard alone, with visible focus in
 
 A structured usability study was conducted with three participants per project member, following the course's provided template: task-based scripts, demographic questions, Likert-scale post-task questionnaires, and recorded sessions.
 
-- Full report for Priamos: **[link to usability study report]**
-- Full report for Timothy: **[[link to usability study report](https://docs.google.com/document/d/1AhJFcY50D9o8Ct6wNkRAz_eStci-m4LxFBQMnkLLXZI/edit?usp=sharing)]**
+- Full report for Priamos: [Usability Study Report](https://docs.google.com/document/d/14ueajOKJP2Hyl5UkvLkTGS15LEW4RG0H5c_Zzcqu6Rs/edit?usp=sharing)
+- Full report for Timothy: [Usability Study Report](https://docs.google.com/document/d/1AhJFcY50D9o8Ct6wNkRAz_eStci-m4LxFBQMnkLLXZI/edit?usp=sharing)
 
 Key findings implemented in this iteration:
 
@@ -140,7 +138,7 @@ Key findings implemented in this iteration:
 
 ## Slideshow Presentation
 
-[link]
+https://docs.google.com/presentation/d/1ENNtHJP1RmaM9_LE8Ts6vSfii53np1-E/edit?usp=sharing&ouid=109450555598504419581&rtpof=true&sd=true
 
 ---
 
@@ -152,17 +150,18 @@ Key findings implemented in this iteration:
 
 ## Live Application
 
-[https://fin-trip-project-3-production.up.railway.app](https://fin-trip-project-3-production.up.railway.app)
+[https://fin-trip-project-3.onrender.com](https://fin-trip-project-3.onrender.com)
 
 ---
 
 ## Live Deployment Notes
 
-- Hosted on Railway
-- Uses Railway MongoDB
+- Hosted on Render
+- Uses MongoDB Atlas
 - Database populated with **1,000+ synthetic Mockaroo records**
 - A dedicated demo account was used to associate those records with a valid application user during seeding. As a result, a grader may register a new account to evaluate application functionality independently.
 - Authentication implemented using Passport.js sessions
+- Demo account with 1k pieces of recorded data: demo@mail.com / Abc123!! (or register your own account to test independently without any data)
 
 ---
 
@@ -170,13 +169,13 @@ Key findings implemented in this iteration:
 
 Purpose: Shows that the backend is deployed and responsive.
 
-[https://fin-trip-project-3-production.up.railway.app/api/health](https://fin-trip-project-3-production.up.railway.app/api/health)
+[https://fin-trip-project-3.onrender.com/api/health](https://fin-trip-project-3.onrender.com/api/health)
 
 ---
 
 ## Production Deployment
 
-The application is deployed on Railway. No local setup is required to evaluate the deployed application.
+The application is deployed on Render. No local setup is required to evaluate the deployed application.
 
 ---
 
@@ -209,7 +208,8 @@ No axios, no Mongoose, no CORS package — the Vite dev proxy handles requests t
 
 **Deployment**
 
-- Railway (Node.js hosting + MongoDB)
+- Render (Node.js hosting)
+- MongoDB Atlas (database)
 
 ---
 
@@ -224,7 +224,7 @@ No axios, no Mongoose, no CORS package — the Vite dev proxy handles requests t
 - Budget visualization: budget summary calculations and dynamic color-coded progress bar (green → yellow → red)
 - Full visual redesign: color palette, homepage/login/register page redesign, and design system implementation in `index.css`
 - Frontend/backend integration: authenticated API communication, CRUD testing, debugging, and overall application integration
-- Railway deployment configuration and completion
+- Render deployment configuration and completion
 - Usability study sessions and prioritized issue list
 
 **Endpoints (Express routes):**
@@ -320,6 +320,7 @@ Fin-Trip-Project-3/
         └── data/
             └── TripInfo.json
 ```
+
 ---
 
 ## Instructions to Build
@@ -417,7 +418,7 @@ AI assistance for the authentication system, trip management features, budget vi
 - generating a color palette from application imagery and translating it into CSS custom properties
 - redesigning the homepage, login, and register pages, including layout, typography pairing, and visual hierarchy
 - refining comments, documentation wording, and project organization for readability and maintainability
-- assisting with Railway deployment, production configuration, MongoDB database seeding, and deployment troubleshooting
+- assisting with Render deployment, production configuration, MongoDB database seeding, and deployment troubleshooting
 
 Additional development and deployment assistance included:
 
@@ -530,7 +531,7 @@ Generated suggestions from both tools were reviewed, adapted, and manually imple
 - GeeksforGeeks, "Create a Password Validator using ReactJS" — https://www.geeksforgeeks.org/reactjs/create-a-password-validator-using-reactjs/
 - Class lecture materials, Professor John Alexis Guerra Gomez — https://johnguerra.co/lectures/webDevelopment_fall2025/
 - This team's Project 1 (personal homepage) and Project 2 (Oncology Trial Information Hub) repositories, reused for CSS structure, Mongo CRUD patterns, and hero-section layout conventions
-- Railway Documentation — https://docs.railway.com/
+- Render Documentation — https://render.com/docs
 
 ---
 
