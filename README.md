@@ -144,7 +144,7 @@ https://docs.google.com/presentation/d/1ENNtHJP1RmaM9_LE8Ts6vSfii53np1-E/edit?us
 
 ## Demonstration Video
 
-[link]
+https://drive.google.com/file/d/1xnFKe_ddYj1Wl_F-MEME3a4wmbSun9Ri/view?usp=sharing
 
 ---
 
@@ -224,7 +224,6 @@ No axios, no Mongoose, no CORS package — the Vite dev proxy handles requests t
 - Budget visualization: budget summary calculations and dynamic color-coded progress bar (green → yellow → red)
 - Full visual redesign: color palette, homepage/login/register page redesign, and design system implementation in `index.css`
 - Frontend/backend integration: authenticated API communication, CRUD testing, debugging, and overall application integration
-- Render deployment configuration and completion
 - Usability study sessions and prioritized issue list
 
 **Endpoints (Express routes):**
@@ -243,7 +242,7 @@ No axios, no Mongoose, no CORS package — the Vite dev proxy handles requests t
 - In-place trip editing (Edit Trip button and modal on the Trip Details page)
 - Currency display formatting fix
 - Full accessibility remediation across all seven application routes (axe DevTools/Lighthouse), including color contrast, form labeling, ARIA progress bar labeling, and heading hierarchy corrections
-- Usability study sessions and report
+- Render deployment configuration and completion
 
 **Endpoints (Express routes):**
 
@@ -395,7 +394,7 @@ App runs on `http://localhost:5173`.
 
 ## Use of Generative AI
 
-### Student 1 — Timothy Criss Jr. (Authentication, Trip Management, Budget Visualization & Redesign)
+### Student 1 — Timothy Criss Jr. 
 
 #### GenAI Usage
 
@@ -440,7 +439,7 @@ Generated suggestions were reviewed, adapted, and manually implemented into the 
 - **Model Used:** GPT-5.5
 - **Provider:** OpenAI
 
-### Student 2 — Priamos Koumas (Expense Management, Trip CRUD Backend, Accessibility & Usability)
+### Student 2 — Priamos Koumas 
 
 #### GenAI Usage
 
