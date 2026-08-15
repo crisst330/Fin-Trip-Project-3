@@ -419,6 +419,7 @@ AI assistance for the authentication system, trip management features, budget vi
 - redesigning the homepage, login, and register pages, including layout, typography pairing, and visual hierarchy
 - refining comments, documentation wording, and project organization for readability and maintainability
 - assisting with Render deployment, production configuration, MongoDB database seeding, and deployment troubleshooting
+- generating AI-created images used throughout the site for hero banners, page backgrounds, and card imagery, later incorporated into the design
 
 Additional development and deployment assistance included:
 
